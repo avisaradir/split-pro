@@ -5,14 +5,41 @@
 @theme inline {
   --breakpoint-xs: 30rem;
 
+  /* System font stack (SF Pro on Apple platforms) — typography.md › Using system fonts */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+  /*
+    iOS text styles (Large/default Dynamic Type size), expressed in rem so browser
+    text-size settings still scale them — typography.md › Specifications.
+  */
+  --text-xs: 0.8125rem; /* Footnote 13/18 */
+  --text-xs--line-height: 1.125rem;
+  --text-sm: 0.9375rem; /* Subhead 15/20 */
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1.0625rem; /* Body 17/22 */
+  --text-base--line-height: 1.375rem;
+  --text-lg: 1.25rem; /* Title 3 20/25 */
+  --text-lg--line-height: 1.5625rem;
+  --text-xl: 1.375rem; /* Title 2 22/28 */
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.75rem; /* Title 1 28/34 */
+  --text-2xl--line-height: 2.125rem;
+  --text-3xl: 2.125rem; /* Large Title 34/41 */
+  --text-3xl--line-height: 2.5625rem;
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --color-positive: var(--color-emerald-500);
-  --color-negative: var(--color-orange-600);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+
+  --color-separator: var(--separator);
+  --color-tertiary-foreground: var(--tertiary-foreground);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -35,6 +62,7 @@
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
 
+  --radius-xl: calc(var(--radius) + 4px);
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -106,7 +134,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: var(--border, currentcolor);
   }
 
   button:not([disabled]),
@@ -116,65 +144,84 @@
 }
 
 :root {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(224 71.4% 4.1%);
+  /*
+    Apple system colors. Light values are tuned where needed so text reaches 4.5:1 on both
+    the grouped background and cards (accessibility.md › Vision). Contrast figures are
+    against #F2F2F7 / #FFFFFF. See .agent-notes/hig-audit.md.
+  */
+  color-scheme: light;
 
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(224 71.4% 4.1%);
+  --background: #f2f2f7; /* systemGroupedBackground */
+  --foreground: #000000; /* label */
 
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(224 71.4% 4.1%);
+  --card: #ffffff; /* secondarySystemGroupedBackground */
+  --card-foreground: #000000;
 
-  --primary: hsl(220.9 39.3% 11%);
-  --primary-foreground: hsl(210 20% 98%);
+  --popover: #ffffff;
+  --popover-foreground: #000000;
 
-  --secondary: hsl(220 14.3% 95.9%);
-  --secondary-foreground: hsl(220.9 39.3% 11%);
+  --primary: #0068d6; /* systemBlue, deepened: 4.8:1 / 5.3:1 */
+  --primary-foreground: #ffffff;
 
-  --muted: hsl(220 14.3% 95.9%);
-  --muted-foreground: hsl(220 8.9% 46.1%);
+  --secondary: #e9e9ee; /* tertiarySystemFill over white */
+  --secondary-foreground: #000000;
 
-  --accent: hsl(220 14.3% 95.9%);
-  --accent-foreground: hsl(220.9 39.3% 11%);
+  --muted: #e9e9ee;
+  --muted-foreground: #636366; /* secondaryLabel: 5.3:1 / 5.9:1 */
+  --tertiary-foreground: #8a8a8e; /* tertiaryLabel: placeholders, non-essential only */
 
-  --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: hsl(210 20% 98%);
+  --accent: #e9e9ee;
+  --accent-foreground: #000000;
 
-  --border: hsl(220 13% 91%);
-  --input: hsl(220 13% 91%);
-  --ring: hsl(224 71.4% 4.1%);
+  --destructive: #d70015; /* systemRed (increased contrast): 4.8:1 / 5.4:1 */
+  --destructive-foreground: #ffffff;
 
-  --radius: 0.5rem;
+  --positive: #1f7a35; /* systemGreen, deepened: 4.8:1 / 5.4:1 */
+  --negative: #c93400; /* systemOrange (increased contrast): 4.7:1 / 5.3:1 */
+
+  --separator: #c6c6c8; /* opaqueSeparator */
+  --border: #c6c6c8;
+  --input: #d1d1d6; /* systemGray4 */
+  --ring: #0068d6;
+
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: hsl(224 71.4% 4.1%);
-  --foreground: hsl(222 2% 83%);
+  color-scheme: dark;
 
-  --card: hsl(224 71.4% 4.1%);
-  --card-foreground: hsl(210 20% 98%);
+  --background: #000000; /* systemGroupedBackground (dark) */
+  --foreground: #ffffff;
 
-  --popover: hsl(224 71.4% 4.1%);
-  --popover-foreground: hsl(210 20% 98%);
+  --card: #1c1c1e; /* secondarySystemGroupedBackground (dark) */
+  --card-foreground: #ffffff;
 
-  --primary: hsl(189 94% 43%);
-  --primary-foreground: hsl(220.9 39.3% 11%);
+  --popover: #1c1c1e; /* elevated */
+  --popover-foreground: #ffffff;
 
-  --secondary: hsl(215 27.9% 16.9%);
-  --secondary-foreground: hsl(210 20% 98%);
+  --primary: #0a84ff; /* systemBlue (dark): 5.8:1 / 4.7:1 */
+  --primary-foreground: #ffffff;
 
-  --muted: hsl(215 27.9% 16.9%);
-  --muted-foreground: hsl(217.9 10.6% 64.9%);
+  --secondary: #2c2c2e; /* tertiarySystemGroupedBackground (dark) */
+  --secondary-foreground: #ffffff;
 
-  --accent: hsl(215 27.9% 16.9%);
-  --accent-foreground: hsl(210 20% 98%);
+  --muted: #2c2c2e;
+  --muted-foreground: #98989f; /* secondaryLabel: 7.3:1 / 5.9:1 */
+  --tertiary-foreground: #6c6c70;
 
-  --destructive: hsl(0 74% 42%);
-  --destructive-foreground: hsl(210 20% 98%);
+  --accent: #2c2c2e;
+  --accent-foreground: #ffffff;
 
-  --border: hsl(215 27.9% 16.9%);
-  --input: hsl(215 27.9% 16.9%);
-  --ring: hsl(221 39% 11%);
+  --destructive: #ff453a; /* systemRed (dark): 6.2:1 / 5.0:1 */
+  --destructive-foreground: #ffffff;
+
+  --positive: #30d158; /* systemGreen (dark) */
+  --negative: #ff9f0a; /* systemOrange (dark) */
+
+  --separator: #38383a;
+  --border: #38383a;
+  --input: #3a3a3c; /* systemGray4 (dark) */
+  --ring: #0a84ff;
 }
 
 @layer base {
@@ -182,7 +229,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground h-full;
+    @apply bg-background text-foreground h-full font-sans text-base antialiased;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -220,7 +268,7 @@ input[type='number'] {
   left: 0;
 
   width: 100%;
-  height: 1px;
+  height: 2px;
 }
 
 /* Fancy blur effect */
@@ -231,8 +279,8 @@ input[type='number'] {
   width: 100px;
   height: 100%;
   box-shadow:
-    0 0 10px #29d,
-    0 0 5px #29d;
+    0 0 10px var(--primary),
+    0 0 5px var(--primary);
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -255,8 +303,8 @@ input[type='number'] {
   box-sizing: border-box;
 
   border: solid 2px transparent;
-  border-top-color: #29d;
-  border-left-color: #29d;
+  border-top-color: var(--primary);
+  border-left-color: var(--primary);
   border-radius: 50%;
 
   -webkit-animation: nprogress-spinner 400ms linear infinite;

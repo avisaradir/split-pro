@@ -1,11 +1,9 @@
 import i18nConfig from '@/next-i18next.config.js';
 import { SerwistProvider } from '@serwist/turbopack/react';
-import { clsx } from 'clsx';
 import { type Session } from 'next-auth';
 import { SessionProvider, useSession } from 'next-auth/react';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { type AppProps } from 'next/app';
-import { Poppins } from 'next/font/google';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -20,7 +18,6 @@ import { api } from '~/utils/api';
 import 'react-easy-crop/react-easy-crop.css';
 import '~/styles/globals.css';
 
-const poppins = Poppins({ weight: ['200', '300', '400', '500', '600', '700'], subsets: ['latin'] });
 const toastOptions = { duration: 1500 };
 
 type PageWithAuth = AppProps['Component'] & { auth?: boolean };
@@ -41,10 +38,11 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppPropsWith
   const baseUrl = global?.window?.location?.origin;
 
   return (
-    <main className={clsx(poppins.className, 'h-full')}>
+    <main className="h-full">
       <Head>
         <title>{t('meta.title')}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="application-name" content={t('meta.application_name')} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content={t('meta.application_name')} />
@@ -55,7 +53,8 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppPropsWith
         <meta name="msapplication-TileColor" content="#2B5797" />
         <meta name="msapplication-tap-highlight" content="no" />
 
-        <meta name="theme-color" content="#030711" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f2f7" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
         <link rel="apple-touch-icon" href="/icons/ios/144.png" />
@@ -85,7 +84,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppPropsWith
       <SerwistProvider swUrl="/serwist/sw.js">
         <SessionProvider session={session}>
           <CurrencyHelpersProvider>
-            <ThemeProvider attribute="class" defaultTheme="dark">
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Toaster toastOptions={toastOptions} />
               {Component.auth ? (
                 <Auth pageProps={pageProps} Page={Component} />
