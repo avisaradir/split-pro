@@ -19,9 +19,9 @@ it('marks the active navigation section for nested routes', () => {
   expect(screen.getByText('Content')).toBeInTheDocument();
   screen.getAllByRole('link', { name: 'Groups' }).forEach((link) => {
     expect(link).toHaveAttribute('href', '/groups');
-    expect(link.querySelector('span')).toHaveClass('text-cyan-500');
+    expect(link).toHaveAttribute('aria-current', 'page');
   });
   screen.getAllByRole('link', { name: 'Balances' }).forEach((link) => {
-    expect(link.querySelector('span')).not.toHaveClass('text-cyan-500');
+    expect(link).not.toHaveAttribute('aria-current');
   });
 });

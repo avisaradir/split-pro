@@ -38,15 +38,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({
       <div
         vaul-drawer-wrapper=""
         className={clsx(
-          'bg-background mx-auto flex h-full w-full flex-col lg:ml-[max(170px,calc((100%_-_48rem)/2))] lg:max-w-3xl lg:flex-row',
+          'bg-background mx-auto flex h-full w-full flex-col lg:ml-[max(200px,calc((100%_-_48rem)/2))] lg:max-w-3xl lg:flex-row',
           hideAppBar ? '' : '',
         )}
       >
-        <nav className="item-center -ml-[170px] hidden w-[170px] shrink-0 px-4 py-4 lg:flex lg:flex-col lg:gap-2">
-          <Link href="/balances" className="mb-8 flex items-center gap-2">
-            <span className="text-xl font-medium">
-              {t?.('meta.application_name') ?? 'SplitPro'}
-            </span>
+        <nav className="-ml-[200px] hidden w-[200px] shrink-0 px-3 py-4 lg:flex lg:flex-col lg:gap-1">
+          <Link href="/balances" className="mb-6 flex min-h-11 items-center gap-2 px-3">
+            <span className="text-xl font-bold">{t?.('meta.application_name') ?? 'SplitPro'}</span>
           </Link>
           <NavItemDesktop
             title={t?.('navigation.balances') ?? 'Balances'}
@@ -79,13 +77,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({
             currentPath={currentPath}
           />
         </nav>
-        <div
-          className="w-full overflow-auto lg:border-x lg:border-gray-900 lg:px-6"
-          id="mainlayout"
-        >
+        <div className="w-full overflow-auto pt-[env(safe-area-inset-top)] lg:px-6" id="mainlayout">
           {title ? (
-            <div className="mb-2 flex items-center justify-between px-4 py-4">
-              <div className="text-3xl font-bold text-gray-200">{title}</div>
+            <div className="flex min-h-11 items-center justify-between gap-2 px-4 pt-3 pb-2">
+              <h1 className="text-foreground min-w-0 truncate text-3xl font-bold tracking-tight">
+                {title}
+              </h1>
               {actions}
             </div>
           ) : null}
@@ -102,7 +99,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         </div>
       </div>
 
-      <nav className="bg-opacity-80 fixed bottom-0 flex w-full justify-between border-t px-2 pb-4 shadow-xs backdrop-blur-lg lg:hidden">
+      <nav className="bg-card/80 border-separator fixed bottom-0 z-40 flex w-full justify-between border-t px-2 pb-[max(env(safe-area-inset-bottom),0.25rem)] backdrop-blur-xl backdrop-saturate-150 lg:hidden">
         <NavItem
           title={t?.('navigation.balances') ?? 'Balances'}
           Icon={SolidScaleIcon}
@@ -151,12 +148,14 @@ const NavItem: React.FC<NavItemProps> = ({ title, Icon, link, currentPath }) => 
   return (
     <Link
       href={link}
-      className={clsx('flex w-32 flex-col items-center justify-between gap-2 py-4')}
+      aria-current={isActive ? 'page' : undefined}
+      className={clsx(
+        'flex min-h-[49px] flex-1 flex-col items-center justify-center gap-0.5 pt-1.5 active:opacity-70',
+        isActive ? 'text-primary' : 'text-muted-foreground',
+      )}
     >
-      <Icon className={clsx('h-7 w-7', isActive ? 'text-cyan-500' : 'text-gray-600')} />
-      <span className={clsx('text-xs', isActive ? 'font-medium text-cyan-500' : 'text-gray-500')}>
-        {title}
-      </span>
+      <Icon className="size-7" aria-hidden="true" />
+      <span className="text-[0.6875rem] leading-[0.8125rem] font-medium">{title}</span>
     </Link>
   );
 };
@@ -165,13 +164,16 @@ const NavItemDesktop: React.FC<NavItemProps> = ({ title, Icon, link, currentPath
   const isActive = currentPath?.startsWith(link);
 
   return (
-    <Link href={link} className={clsx('flex w-[150px] items-center gap-2 py-4')}>
-      <Icon className={clsx('h-7 w-7', isActive ? 'text-cyan-500' : 'text-gray-600')} />
-      <span
-        className={clsx('capitalize', isActive ? 'font-medium text-cyan-500' : 'text-gray-500')}
-      >
-        {title}
-      </span>
+    <Link
+      href={link}
+      aria-current={isActive ? 'page' : undefined}
+      className={clsx(
+        'flex min-h-11 items-center gap-3 rounded-lg px-3 transition-colors active:opacity-70',
+        isActive ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground hover:bg-muted',
+      )}
+    >
+      <Icon className={clsx('size-6', !isActive && 'text-muted-foreground')} aria-hidden="true" />
+      <span className="capitalize">{title}</span>
     </Link>
   );
 };
