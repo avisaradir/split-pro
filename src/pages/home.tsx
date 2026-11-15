@@ -31,7 +31,7 @@ const Home = () => {
             width={96}
             height={96}
             priority
-            className="rounded-[22px] shadow-sm dark:ring-1 dark:ring-white/15"
+            className="rounded-[22px] shadow-sm"
           />
           <h1 className="text-foreground text-3xl font-bold tracking-tight">{t('nav.app_name')}</h1>
         </div>
