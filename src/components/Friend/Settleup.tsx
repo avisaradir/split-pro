@@ -174,16 +174,18 @@ const SettleUpWithBalances: React.FC<{
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-5">
               <EntityAvatar entity={isCurrentUserPaying ? currentUser : friend} />
-              <ArrowRightIcon className="h-6 w-6 text-gray-600" />
+              <ArrowRightIcon className="text-muted-foreground h-6 w-6" />
               <EntityAvatar entity={isCurrentUserPaying ? friend : currentUser} />
             </div>
-            <p className="mt-2 text-center text-sm text-gray-400">
+            <p className="text-muted-foreground mt-2 text-center text-sm">
               {isCurrentUserPaying
                 ? t('ui.expense.statements.you_pay_user', { user: displayName(friend) })
                 : t('ui.expense.statements.user_pays_you', { user: displayName(friend) })}
             </p>
             {balanceToSettle.groupName ? (
-              <p className="mt-1 text-center text-xs text-gray-500">{balanceToSettle.groupName}</p>
+              <p className="text-muted-foreground mt-1 text-center text-xs">
+                {balanceToSettle.groupName}
+              </p>
             ) : null}
           </div>
           <CurrencyInput

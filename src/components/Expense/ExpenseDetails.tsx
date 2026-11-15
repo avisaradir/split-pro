@@ -47,7 +47,7 @@ const ExpenseDetails: React.FC<ExpenseDetailsProps> = ({ user, expense }) => {
       <div className="mb-4 flex items-start justify-between gap-2">
         <div className="flex items-start gap-4">
           <div className="rounded-lg border p-2 text-xl">
-            <CategoryIcon category={expense.category} className="text-gray-400" size={24} />
+            <CategoryIcon category={expense.category} className="text-muted-foreground" size={24} />
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex w-full items-center gap-2">
@@ -56,12 +56,12 @@ const ExpenseDetails: React.FC<ExpenseDetailsProps> = ({ user, expense }) => {
             </div>
             <p className="text-2xl font-semibold">{toUIString(expense.amount)}</p>
             {!isSameDay(expense.expenseDate, expense.createdAt) ? (
-              <p className="text-sm text-gray-500">
+              <p className="text-muted-foreground text-sm">
                 {toUIDate(expense.expenseDate, { year: true })}
               </p>
             ) : null}
             {expense.updatedByUser ? (
-              <p className="text-sm text-gray-500">
+              <p className="text-muted-foreground text-sm">
                 {t('expense_metadata.edited_by', {
                   actor: expense.updatedByUser.id === user.id ? 'you' : 'other',
                   user: displayName(expense.updatedByUser),
@@ -78,7 +78,7 @@ const ExpenseDetails: React.FC<ExpenseDetailsProps> = ({ user, expense }) => {
                 })}
               </p>
             ) : (
-              <p className="text-sm text-gray-500">
+              <p className="text-muted-foreground text-sm">
                 {t('expense_metadata.added_by', {
                   actor: expense.addedByUser.id === user.id ? 'you' : 'other',
                   user: displayName(expense.addedByUser),
@@ -355,10 +355,10 @@ export const EditSettlement: React.FC<{ expense: ExpenseDetailsOutput }> = ({ ex
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-5">
             <EntityAvatar entity={sender} />
-            <ArrowRightIcon className="h-6 w-6 text-gray-600" />
+            <ArrowRightIcon className="text-muted-foreground h-6 w-6" />
             <EntityAvatar entity={receiver} />
           </div>
-          <p className="mt-2 text-center text-sm text-gray-400">
+          <p className="text-muted-foreground mt-2 text-center text-sm">
             {t('ui.transfer', {
               senderRole: sender.id === session?.user.id ? 'you' : 'other',
               receiverRole: receiver.id === session?.user.id ? 'you' : 'other',
@@ -367,7 +367,7 @@ export const EditSettlement: React.FC<{ expense: ExpenseDetailsOutput }> = ({ ex
             })}
           </p>
           {expense.group ? (
-            <p className="mt-1 text-center text-xs text-gray-500">{expense.group.name}</p>
+            <p className="text-muted-foreground mt-1 text-center text-xs">{expense.group.name}</p>
           ) : null}
         </div>
         <CurrencyInput

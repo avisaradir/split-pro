@@ -23,9 +23,12 @@ export const BalanceEntry: React.FC<{
   }, []);
 
   return (
-    <Link className="flex items-center justify-between" href={`${currentRoute}/${id}`}>
+    <Link
+      className="hover:bg-muted active:bg-muted flex min-h-14 items-center justify-between gap-3 px-4 py-2.5 transition-colors"
+      href={`${currentRoute}/${id}`}
+    >
       <div className="flex min-w-0 items-center gap-3">
-        <EntityAvatar entity={entity} size={35} />
+        <EntityAvatar entity={entity} size={40} />
         <div className="text-foreground truncate">{displayName(entity)}</div>
       </div>
       <div className="text-right" onClick={stopPropagation}>

@@ -67,7 +67,7 @@ const RecurringExpenseItem: React.FC<RecurringExpenseItemProps> = ({
           <div className="text-primary text-sm">
             {schedule ? <RecurrencePreview schedule={schedule} /> : t('recurrence.recurring')}
           </div>
-          <p className="text-xs text-gray-500">{toUIDate(item.expense.expenseDate)}</p>
+          <p className="text-muted-foreground text-xs">{toUIDate(item.expense.expenseDate)}</p>
         </div>
       </Link>
       <div className="flex items-center gap-1">
@@ -122,20 +122,24 @@ const RecurringPage: NextPageWithUser = () => {
       </Head>
       <MainLayout
         title={
-          <div className="flex items-center gap-2">
-            <Link href="/activity">
-              <Button variant="ghost" className="p-0">
-                <ChevronLeftIcon className="mr-1 h-6 w-6" />
-              </Button>
+          <div className="flex min-w-0 items-center gap-1">
+            <Link
+              href="/activity"
+              className="text-primary -ml-3 flex size-11 shrink-0 items-center justify-center"
+              aria-label={t('actions.back')}
+            >
+              <ChevronLeftIcon className="size-7" />
             </Link>
-            <p className="text-[16px] font-normal">{t('navigation.recurring')}</p>
+            <p className="truncate text-lg font-semibold">{t('navigation.recurring')}</p>
           </div>
         }
         loading={recurringExpensesQuery.isPending}
       >
         <div className="flex flex-col gap-4">
           {!recurringExpensesQuery.data?.length ? (
-            <div className="mt-[30vh] text-center text-gray-400">{t('recurrence.empty')}</div>
+            <div className="text-muted-foreground mt-[30vh] text-center">
+              {t('recurrence.empty')}
+            </div>
           ) : null}
           {recurringExpensesQuery.data?.map((e) => (
             <RecurringExpenseItem

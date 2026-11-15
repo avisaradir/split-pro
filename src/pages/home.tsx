@@ -44,7 +44,7 @@ const FeatureCard = ({
       <Icon className="text-primary size-6" />
       <p className="text-lg font-medium">{title}</p>
     </div>
-    <p className="px-4 text-gray-400 lg:px-0">{description}</p>
+    <p className="text-muted-foreground px-4 lg:px-0">{description}</p>
   </div>
 );
 
@@ -71,14 +71,14 @@ const Home = () => {
         <div className="mx-auto mt-20 flex w-full items-start justify-center gap-16 px-4 lg:max-w-5xl lg:px-0">
           <div>
             <div className="mb-32 text-center lg:mb-0 lg:h-[70vh] lg:text-left">
-              <h1 className="max-w-3xl text-center text-2xl leading-loose font-semibold text-gray-100 lg:text-left lg:text-5xl lg:leading-16">
+              <h1 className="text-foreground max-w-3xl text-center text-2xl leading-loose font-semibold lg:text-left lg:text-5xl lg:leading-16">
                 <Trans
                   t={t}
                   i18nKey="hero.title_rich"
                   components={{ highlight: <span className="text-primary font-bold" /> }}
                 />
               </h1>
-              <h2 className="mt-5 text-gray-300 lg:mt-8 lg:text-lg">
+              <h2 className="text-muted-foreground mt-5 lg:mt-8 lg:text-lg">
                 <Trans
                   t={t}
                   i18nKey="hero.subtitle_rich"
@@ -241,7 +241,7 @@ const Home = () => {
                 >
                   krokosik
                 </a>
-                {/* <p className="text-gray-400">
+                {/* <p className="text-muted-foreground">
                   A product of <a className="underline underline-offset-2">ossapps.dev</a>
                 </p> */}
               </div>

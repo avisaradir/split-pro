@@ -62,19 +62,19 @@ export const ExpenseList: React.FC<{
           <React.Fragment key={e.id}>
             {isFirstOfMonth && (
               <div className="flex flex-row items-center gap-4 pt-2">
-                <div className="text-xs font-medium text-gray-700 uppercase">
+                <div className="text-muted-foreground text-xs font-medium uppercase">
                   {new Intl.DateTimeFormat(i18n.language, {
                     month: 'long',
                     year: 'numeric',
                   }).format(currentDate)}
                 </div>
-                <Separator className="flex-1 bg-gray-800" />
+                <Separator className="bg-separator flex-1" />
               </div>
             )}
             <Link
               href={`/${isGroup ? 'groups' : 'balances'}/${contactId}/expenses/${e.id}`}
               className={cn(
-                'group/expense flex items-center justify-between',
+                'group/expense hover:bg-muted active:bg-muted -mx-2 flex min-h-12 items-center justify-between rounded-lg px-2 transition-colors',
                 isFirstOfMonth ? 'pb-2' : 'py-2',
                 isFuture && 'opacity-50 grayscale',
               )}
@@ -117,7 +117,7 @@ const Expense: ExpenseComponent = ({ e, userId }) => {
   return (
     <>
       <div className="flex min-w-0 items-center gap-4">
-        <div className="inline-block w-6 shrink-0 text-center text-xs text-gray-500">
+        <div className="text-muted-foreground inline-block w-6 shrink-0 text-center text-xs">
           {toUIDate(e.expenseDate)}
           {null !== e.recurrenceId && (
             <span className="mt-1 flex justify-center">
@@ -125,10 +125,10 @@ const Expense: ExpenseComponent = ({ e, userId }) => {
             </span>
           )}
         </div>
-        <CategoryIcon category={e.category} className="size-5 shrink-0 text-gray-400" />
+        <CategoryIcon category={e.category} className="text-muted-foreground size-5 shrink-0" />
         <div className="min-w-0 pe-1">
           <p className="truncate text-sm lg:text-base">{e.name}</p>
-          <p className="truncate text-xs text-gray-500">
+          <p className="text-muted-foreground truncate text-xs">
             {t(e.amount < 0n ? 'expense_list.user_received' : 'expense_list.user_paid', {
               actor: e.paidByUser.id === userId ? 'you' : 'other',
               user: displayName(e.paidByUser),
@@ -151,7 +151,7 @@ const Expense: ExpenseComponent = ({ e, userId }) => {
           </>
         ) : (
           <div>
-            <p className="text-xs text-gray-400">{t('ui.not_involved')}</p>
+            <p className="text-muted-foreground text-xs">{t('ui.not_involved')}</p>
           </div>
         )}
       </div>
@@ -169,7 +169,7 @@ const Settlement: ExpenseComponent = ({ e, userId }) => {
 
   return (
     <div className="flex items-center gap-4">
-      <div className="inline-block w-6 text-center text-xs text-gray-500">
+      <div className="text-muted-foreground inline-block w-6 text-center text-xs">
         {toUIDate(e.expenseDate)}
         {null !== e.recurrenceId && (
           <span className="mt-1 flex justify-center">
@@ -177,9 +177,9 @@ const Settlement: ExpenseComponent = ({ e, userId }) => {
           </span>
         )}
       </div>
-      <SettleupIcon className="size-5 shrink-0 text-gray-400" />
+      <SettleupIcon className="text-muted-foreground size-5 shrink-0" />
       <div className="min-w-0">
-        <p className="line-clamp-2 text-sm text-gray-400">
+        <p className="text-muted-foreground line-clamp-2 text-sm">
           {t('expense_list.settlement', {
             payerRole: e.paidByUser.id === userId ? 'you' : 'other',
             receiverRole: receiverId === userId ? 'you' : 'other',
@@ -212,7 +212,7 @@ const CurrencyConversion: ExpenseComponent = ({ e, userId }) => {
 
   return (
     <div className="flex min-w-0 items-center gap-4">
-      <div className="inline-block w-6 shrink-0 text-center text-xs text-gray-500">
+      <div className="text-muted-foreground inline-block w-6 shrink-0 text-center text-xs">
         {toUIDate(e.expenseDate)}
         {null !== e.recurrenceId && (
           <span className="mt-1 flex justify-center">
@@ -220,7 +220,7 @@ const CurrencyConversion: ExpenseComponent = ({ e, userId }) => {
           </span>
         )}
       </div>
-      <CurrencyConversionIcon className="size-5 shrink-0 text-gray-400" />
+      <CurrencyConversionIcon className="text-muted-foreground size-5 shrink-0" />
       <div className="min-w-0">
         <p className="truncate text-sm lg:text-base">
           {getCurrencyHelpersCached(e.currency).toUIString(e.amount)} ➡️{' '}
@@ -229,7 +229,7 @@ const CurrencyConversion: ExpenseComponent = ({ e, userId }) => {
             getCurrencyHelpersCached(e.conversionTo.currency).toUIString(e.conversionTo.amount)
           }
         </p>
-        <p className="truncate text-xs text-gray-500">
+        <p className="text-muted-foreground truncate text-xs">
           {t('expense_list.conversion_for_users', {
             payerRole: e.paidByUser.id === userId ? 'you' : 'other',
             receiverRole: receiverId === userId ? 'you' : 'other',

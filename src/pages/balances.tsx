@@ -8,6 +8,7 @@ import { BalanceEntry } from '~/components/Expense/BalanceEntry';
 import MainLayout from '~/components/Layout/MainLayout';
 import { NotificationModal } from '~/components/NotificationModal';
 import { Button } from '~/components/ui/button';
+import { ListGroup } from '~/components/ui/list-group';
 import { ConvertibleBalance } from '~/components/Expense/ConvertibleBalance';
 import { useIsPwa } from '~/hooks/useIsPwa';
 import { useTranslationWithUtils } from '~/hooks/useTranslationWithUtils';
@@ -62,7 +63,13 @@ const BalancePage: NextPageWithUser = ({ user }) => {
         title={t('navigation.balances')}
         actions={
           'undefined' !== typeof window && 'share' in window.navigator ? (
-            <Button variant="ghost" onClick={shareWithFriends}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-primary"
+              onClick={shareWithFriends}
+              aria-label={t('actions.share')}
+            >
               <ArrowUpOnSquareIcon className="h-6 w-6" />
             </Button>
           ) : (
@@ -72,7 +79,7 @@ const BalancePage: NextPageWithUser = ({ user }) => {
         loading={cumulatedQuery.isPending}
       >
         <NotificationModal />
-        <div className="mx-4 flex items-stretch justify-between gap-4">
+        <div className="flex items-stretch justify-between gap-3">
           {selectedCurrency && isCurrencyCode(selectedCurrency) ? (
             <CumulatedBalanceDisplay
               prefix={t('ui.total_balance')}
@@ -99,28 +106,32 @@ const BalancePage: NextPageWithUser = ({ user }) => {
           )}
         </div>
 
-        <div className="mt-5 flex flex-col gap-8 pb-36">
-          {balanceQuery.data?.balances.map((balance) => (
-            <BalanceEntry
-              key={balance.friend.id}
-              id={balance.friend.id}
-              entity={balance.friend}
-              balances={balance.currencies}
-            />
-          ))}
+        <div className="mt-6 flex flex-col gap-8 pb-36">
+          {balanceQuery.data?.balances.length ? (
+            <ListGroup>
+              {balanceQuery.data.balances.map((balance) => (
+                <BalanceEntry
+                  key={balance.friend.id}
+                  id={balance.friend.id}
+                  entity={balance.friend}
+                  balances={balance.currencies}
+                />
+              ))}
+            </ListGroup>
+          ) : null}
 
           {!balanceQuery.isPending && !balanceQuery.data?.balances.length ? (
             <div className="mt-[40vh] flex -translate-y-[130%] flex-col items-center justify-center gap-6">
               <DownloadAppDrawer>
                 <Button className="w-62.5">
-                  <Download className="mr-2 h-5 w-5 text-black" />
+                  <Download className="h-5 w-5" />
                   {t('account.download_app')}
                 </Button>
               </DownloadAppDrawer>
               {!isPwa && <p>{t('ui.or')}</p>}
               <Link href="/add">
                 <Button className="w-62.5">
-                  <PlusIcon className="mr-2 h-5 w-5 text-black" />
+                  <PlusIcon className="h-5 w-5" />
                   {t('actions.add_expense')}
                 </Button>
               </Link>
@@ -143,10 +154,10 @@ const CumulatedBalanceDisplay: React.FC<{
   }
 
   return (
-    <div className={cn('w-1/2 rounded-2xl border px-4 py-2', className)}>
+    <div className={cn('bg-card w-1/2 rounded-xl px-4 py-2', className)}>
       <div className="mt-2 px-1">
         <div className="flex items-center justify-center gap-2 text-center">
-          <p className="text-sm">{prefix}</p>
+          <p className="text-muted-foreground text-sm font-medium">{prefix}</p>
         </div>
       </div>
       <div className="mt-4 mb-2 flex flex-wrap justify-center gap-1">

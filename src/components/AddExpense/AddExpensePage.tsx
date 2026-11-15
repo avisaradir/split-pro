@@ -296,12 +296,12 @@ export const AddOrEditExpensePage: React.FC<{
         <Button variant="ghost" className="text-primary px-0" onClick={onBackButtonPress}>
           {t('actions.cancel')}
         </Button>
-        <div className="text-center">
+        <h1 className="text-center text-base font-semibold">
           {expenseId ? t('actions.edit_expense') : t('actions.add_expense')}
-        </div>
+        </h1>
         <Button
           variant="ghost"
-          className="text-primary px-0"
+          className="text-primary px-0 font-semibold"
           disabled={
             addExpenseMutation.isPending ||
             !amount ||
@@ -345,7 +345,7 @@ export const AddOrEditExpensePage: React.FC<{
             <div className="grid h-20 grid-cols-[73px_minmax(0,1fr)] items-start gap-2">
               <button
                 type="button"
-                className="ring-offset-background flex h-10 w-full items-center justify-center rounded-md focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-hidden"
+                className="ring-offset-background focus-visible:ring-ring flex h-10 w-full items-center justify-center rounded-md focus-visible:ring-2 focus-visible:outline-hidden"
                 aria-label={t('comments.initial_label')}
                 title={t('comments.initial_label')}
                 aria-expanded={showInitialComment}
@@ -355,7 +355,9 @@ export const AddOrEditExpensePage: React.FC<{
                 <MessageSquare
                   className={cn(
                     'size-6',
-                    showInitialComment || initialComment.trim() ? 'text-primary' : 'text-gray-300',
+                    showInitialComment || initialComment.trim()
+                      ? 'text-primary'
+                      : 'text-muted-foreground',
                   )}
                 />
               </button>
@@ -375,7 +377,7 @@ export const AddOrEditExpensePage: React.FC<{
           <div className="h-[180px]">
             {amount && '' !== description ? (
               <>
-                <div className="flex flex-col items-center justify-center text-sm text-gray-400 sm:mt-4 sm:flex-row">
+                <div className="text-muted-foreground flex flex-col items-center justify-center text-sm sm:mt-4 sm:flex-row">
                   <p>{t(`ui.expense.${isNegative ? 'received_by' : 'paid_by'}`)}</p>
                   <PayerSelectionForm>
                     <Button
@@ -476,7 +478,7 @@ export const AddOrEditExpensePage: React.FC<{
               </AddBankTransactions>
               <Button
                 variant="ghost"
-                className={cn('px-2', transactionId ? 'text-red-500' : 'invisible')}
+                className={cn('px-2', transactionId ? 'text-destructive' : 'invisible')}
                 disabled={!transactionId}
                 onClick={clearTransaction}
               >
@@ -497,7 +499,7 @@ const SponsorUs = () => {
       <Link href="https://github.com/sponsors/krokosik" target="_blank" className="mx-auto">
         <Button
           variant="outline"
-          className="text-md hover:text-foreground/80 justify-between rounded-full border-pink-500"
+          className="text-md hover:text-foreground/80 justify-between rounded-full"
         >
           <div className="flex items-center gap-4">
             <HeartHandshakeIcon className="h-5 w-5 text-pink-500" />

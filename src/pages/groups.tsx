@@ -6,6 +6,7 @@ import { BalanceEntry } from '~/components/Expense/BalanceEntry';
 import { CreateGroup } from '~/components/group/CreateGroup';
 import MainLayout from '~/components/Layout/MainLayout';
 import { Button } from '~/components/ui/button';
+import { ListGroup } from '~/components/ui/list-group';
 import {
   Accordion,
   AccordionContent,
@@ -42,8 +43,13 @@ const BalancePage: NextPageWithUser = () => {
   const actions = useMemo(
     () => (
       <CreateGroup>
-        <Button variant="ghost" size="icon" aria-label={t('group_details.create_group.title')}>
-          <PlusIcon />
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-primary"
+          aria-label={t('group_details.create_group.title')}
+        >
+          <PlusIcon className="size-7" />
         </Button>
       </CreateGroup>
     ),
@@ -56,7 +62,7 @@ const BalancePage: NextPageWithUser = () => {
         <title>{t('navigation.groups')}</title>
       </Head>
       <MainLayout title={t('navigation.groups')} actions={actions} loading={groupQuery.isPending}>
-        <div className="mt-7 flex flex-col gap-8 pb-36">
+        <div className="mt-6 flex flex-col gap-8 pb-36">
           {0 === groupQuery.data?.length ? (
             <div className="mt-[30vh] flex flex-col items-center justify-center gap-20">
               <CreateGroup>
@@ -69,28 +75,32 @@ const BalancePage: NextPageWithUser = () => {
           ) : (
             <>
               {/* Active Groups */}
-              {groupQuery.data?.map((g) => (
-                <BalanceEntry
-                  key={g.id}
-                  id={g.id}
-                  entity={g}
-                  balances={transformBalances(g.balances)}
-                />
-              ))}
+              {groupQuery.data?.length ? (
+                <ListGroup>
+                  {groupQuery.data.map((g) => (
+                    <BalanceEntry
+                      key={g.id}
+                      id={g.id}
+                      entity={g}
+                      balances={transformBalances(g.balances)}
+                    />
+                  ))}
+                </ListGroup>
+              ) : null}
 
               {/* Archived Groups Accordion */}
               {archivedGroupQuery.data && archivedGroupQuery.data.length > 0 && (
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value="archived-groups">
-                    <AccordionTrigger className="text-left text-sm text-gray-400">
+                    <AccordionTrigger className="text-muted-foreground text-left text-sm">
                       {t('group_details.group_info.archived')} ({archivedGroupQuery.data.length})
                     </AccordionTrigger>
                     <AccordionContent>
-                      <div className="mt-7 flex flex-col gap-8">
+                      <ListGroup className="mt-2">
                         {archivedGroupQuery.data.map((g) => (
                           <BalanceEntry key={g.id} id={g.id} entity={g} />
                         ))}
-                      </div>
+                      </ListGroup>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>

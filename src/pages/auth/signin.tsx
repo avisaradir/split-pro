@@ -197,7 +197,9 @@ const Home: NextPage<{
       <main className="flex h-full flex-col justify-center lg:justify-normal">
         <div className="flex flex-col items-center lg:mt-20">
           <div className="mb-5 flex items-center gap-4">
-            <p className="text-primary text-3xl">{t('meta.application_name')}</p>
+            <p className="text-primary text-3xl font-bold tracking-tight">
+              {t('meta.application_name')}
+            </p>
           </div>
           <div className="mb-10 flex items-center gap-4">
             <LanguageSelector />
@@ -231,7 +233,7 @@ const Home: NextPage<{
                     .filter((provider) => 'email' !== provider.id)
                     .map((provider) => (
                       <Button
-                        className="mx-auto my-2 flex w-[300px] items-center gap-3 bg-white hover:bg-gray-100 focus:bg-gray-100"
+                        className="border-input mx-auto my-2 flex w-[300px] items-center gap-3 border bg-white text-black hover:bg-neutral-100 focus:bg-neutral-100"
                         onClick={handleProviderSignIn(provider.id)}
                         key={provider.id}
                       >
@@ -241,10 +243,10 @@ const Home: NextPage<{
                     ))}
                   {providers && 2 === providers.length && (
                     <div className="mt-6 flex w-[300px] items-center justify-between gap-2">
-                      <p className="bg-background z-10 ml-[150px] -translate-x-1/2 px-4 text-sm">
+                      <p className="bg-background text-muted-foreground z-10 ml-[150px] -translate-x-1/2 px-4 text-sm">
                         {t('ui.or')}
                       </p>
-                      <div className="absolute h-px w-[300px] bg-linear-to-r from-zinc-800 via-zinc-300 to-zinc-800" />
+                      <div className="bg-separator absolute h-px w-[300px]" />
                     </div>
                   )}
                   {providers.find((provider) => 'email' === provider.id) ? (
@@ -260,7 +262,7 @@ const Home: NextPage<{
                             render={renderField}
                           />
                           <Button
-                            className="mt-6 w-[300px] bg-white hover:bg-gray-100 focus:bg-gray-100"
+                            className="mt-6 w-[300px]"
                             type="submit"
                             disabled={'sending' === emailStatus}
                           >

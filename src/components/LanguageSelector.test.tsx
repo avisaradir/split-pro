@@ -44,7 +44,7 @@ describe('LanguageSelector', () => {
 
     const selectedLanguage = screen.getByText('✓').closest('button');
     expect(selectedLanguage).not.toBeNull();
-    expect(selectedLanguage).toHaveClass('bg-blue-50');
+    expect(selectedLanguage).toHaveAttribute('aria-current', 'true');
     expect(selectedLanguage).toHaveTextContent('✓');
 
     fireEvent.click(screen.getByRole('button', { name: 'Français' }));

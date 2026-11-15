@@ -13,13 +13,33 @@ export const AccountButton: React.FC<React.PropsWithChildren<ButtonProps> & { hr
   <WithLink href={href}>
     <Button
       variant="ghost"
-      className={cn(className, 'text-md hover:text-foreground/80 w-full justify-between px-0')}
+      // Row styles come last so drawer/dialog trigger classes can't re-center the row.
+      className={cn(
+        className,
+        'bg-card hover:bg-muted active:bg-muted h-auto min-h-11 w-full justify-between gap-3 rounded-none px-4 py-2 text-base font-normal hover:opacity-100 active:opacity-100',
+      )}
       {...buttonProps}
     >
-      <div className="flex items-center gap-4">{children}</div>
-      <ChevronRight className="h-6 w-6 text-gray-500" />
+      <div className="flex min-w-0 items-center gap-3 text-start whitespace-normal">{children}</div>
+      <ChevronRight className="text-tertiary-foreground size-5 shrink-0" aria-hidden="true" />
     </Button>
   </WithLink>
+);
+
+/** A Settings-style icon tile: white glyph on a colored rounded square. */
+export const AccountIcon: React.FC<React.PropsWithChildren<{ className?: string }>> = ({
+  className,
+  children,
+}) => (
+  <span
+    aria-hidden="true"
+    className={cn(
+      'flex size-7 shrink-0 items-center justify-center rounded-md text-white [&_svg]:size-[18px]',
+      className,
+    )}
+  >
+    {children}
+  </span>
 );
 
 export const WithLink: React.FC<React.PropsWithChildren<{ href?: string }>> = ({
