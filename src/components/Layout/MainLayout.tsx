@@ -1,7 +1,8 @@
+// One filled icon family for every navigation item (tab-bars.md › "Prefer filled symbols").
 import {
-  ListBulletIcon as SolidListBulletIcon,
+  BanknotesIcon as SolidBanknotesIcon,
+  ClockIcon as SolidClockIcon,
   PlusCircleIcon as SolidPlusCircleIcon,
-  ChartPieIcon as SolidScaleIcon,
   UserCircleIcon as SolidUserCircleIcon,
   UserGroupIcon as SolidUserGroupIcon,
 } from '@heroicons/react/24/solid';
@@ -48,7 +49,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
           </Link>
           <NavItemDesktop
             title={t?.('navigation.balances') ?? 'Balances'}
-            Icon={SolidScaleIcon}
+            Icon={SolidBanknotesIcon}
             link="/balances"
             currentPath={currentPath}
           />
@@ -66,7 +67,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
           />
           <NavItemDesktop
             title={t?.('navigation.activity') ?? 'Activity'}
-            Icon={SolidListBulletIcon}
+            Icon={SolidClockIcon}
             link="/activity"
             currentPath={currentPath}
           />
@@ -102,7 +103,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
       <nav className="bg-card/80 border-separator fixed bottom-0 z-40 flex w-full justify-between border-t px-2 pb-[max(env(safe-area-inset-bottom),0.25rem)] backdrop-blur-xl backdrop-saturate-150 lg:hidden">
         <NavItem
           title={t?.('navigation.balances') ?? 'Balances'}
-          Icon={SolidScaleIcon}
+          Icon={SolidBanknotesIcon}
           link="/balances"
           currentPath={currentPath}
         />
@@ -120,7 +121,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         />
         <NavItem
           title={t?.('navigation.activity') ?? 'Activity'}
-          Icon={SolidListBulletIcon}
+          Icon={SolidClockIcon}
           link="/activity"
           currentPath={currentPath}
         />
