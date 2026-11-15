@@ -1,7 +1,5 @@
 import { TRPCClientError } from '@trpc/client';
-import { HeartHandshakeIcon, Landmark, MessageSquare, RefreshCcwDot, X } from 'lucide-react';
-import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
+import { Landmark, MessageSquare, RefreshCcwDot, X } from 'lucide-react';
 import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
 
@@ -464,7 +462,7 @@ export const AddOrEditExpensePage: React.FC<{
                 </EditRecurrenceDialog>
               )}
             </div>
-            <SponsorUs />
+            <div aria-hidden="true" />
             <div className="flex gap-2 justify-self-end">
               <AddBankTransactions bankConnectionEnabled={bankConnectionEnabled}>
                 <Button
@@ -488,25 +486,6 @@ export const AddOrEditExpensePage: React.FC<{
           </div>
         </>
       )}
-    </div>
-  );
-};
-
-const SponsorUs = () => {
-  const { t } = useTranslation();
-  return (
-    <div className="flex justify-center">
-      <Link href="https://github.com/sponsors/krokosik" target="_blank" className="mx-auto">
-        <Button
-          variant="outline"
-          className="text-md hover:text-foreground/80 justify-between rounded-full"
-        >
-          <div className="flex items-center gap-4">
-            <HeartHandshakeIcon className="h-5 w-5 text-pink-500" />
-            {t('expense_details.add_expense_details.sponsor_us')}
-          </div>
-        </Button>
-      </Link>
     </div>
   );
 };

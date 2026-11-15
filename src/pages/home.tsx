@@ -1,264 +1,53 @@
-import {
-  ArrowRight,
-  Banknote,
-  Bell,
-  DollarSign,
-  FileUp,
-  GitFork,
-  Globe,
-  Import,
-  Landmark,
-  type LucideIcon,
-  Merge,
-  RefreshCw,
-  Split,
-  Users,
-} from 'lucide-react';
 import { type GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Trans, useTranslation } from 'next-i18next';
-import { BackgroundGradient } from '~/components/ui/background-gradient';
-import { Button } from '~/components/ui/button';
+import { useTranslation } from 'next-i18next';
 
 import { LanguageSelector } from '~/components/LanguageSelector';
+import { Button } from '~/components/ui/button';
 import { customServerSideTranslations } from '~/utils/i18n/server';
-import { SiGithub } from '@icons-pack/react-simple-icons';
 
-const FeatureRow = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex flex-col gap-20 lg:flex-row lg:gap-8">{children}</div>
-);
-
-const FeatureCard = ({
-  icon: Icon,
-  title,
-  description,
-}: {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-}) => (
-  <div className="flex flex-col gap-1 lg:w-1/2">
-    <div className="flex flex-row justify-center gap-1 lg:flex-col">
-      <Icon className="text-primary size-6" />
-      <p className="text-lg font-medium">{title}</p>
-    </div>
-    <p className="text-muted-foreground px-4 lg:px-0">{description}</p>
-  </div>
-);
-
+/**
+ * App launch screen: just the app identity and a way in — no marketing copy.
+ */
 const Home = () => {
   const { t } = useTranslation('home');
 
   return (
     <>
       <Head>
-        <title>{t('meta.title')}</title>
-        <meta name="description" content={t('meta.description')} />
+        <title>{t('nav.app_name')}</title>
       </Head>
-      <main className="min-h-screen">
-        <nav className="sticky z-40 mx-auto flex max-w-5xl items-center justify-between px-4 py-4 lg:px-0 lg:py-5">
-          <div className="flex items-center gap-2">
-            <p className="text-2xl font-medium">{t('nav.app_name')}</p>
-          </div>
-          <div className="flex items-center gap-8">
-            <LanguageSelector />
-            <Link href="/terms">{t('nav.terms')}</Link>
-            <Link href="/privacy">{t('nav.privacy')}</Link>
-          </div>
+      <main className="bg-background flex min-h-full flex-col px-4 pt-[env(safe-area-inset-top)] pb-[max(env(safe-area-inset-bottom),1rem)]">
+        <nav className="mx-auto flex w-full max-w-md justify-end py-3">
+          <LanguageSelector />
         </nav>
-        <div className="mx-auto mt-20 flex w-full items-start justify-center gap-16 px-4 lg:max-w-5xl lg:px-0">
-          <div>
-            <div className="mb-32 text-center lg:mb-0 lg:h-[70vh] lg:text-left">
-              <h1 className="text-foreground max-w-3xl text-center text-2xl leading-loose font-semibold lg:text-left lg:text-5xl lg:leading-16">
-                <Trans
-                  t={t}
-                  i18nKey="hero.title_rich"
-                  components={{ highlight: <span className="text-primary font-bold" /> }}
-                />
-              </h1>
-              <h2 className="text-muted-foreground mt-5 lg:mt-8 lg:text-lg">
-                <Trans
-                  t={t}
-                  i18nKey="hero.subtitle_rich"
-                  components={{
-                    sourceLink: (
-                      <a
-                        className="text-primary hover:underline"
-                        href="https://github.com/oss-apps/split-pro"
-                        target="_blank"
-                        rel="noreferrer"
-                      />
-                    ),
-                  }}
-                />
-              </h2>
-              <div className="mt-10 flex flex-col gap-6 lg:flex-row">
-                <Link href="/auth/signin" className="mx-auto lg:mx-0">
-                  <Button className="flex w-[200px] items-center gap-2 rounded-full">
-                    {t('hero.add_expense_button')} <ArrowRight size={15} />{' '}
-                  </Button>
-                </Link>
-                <Link
-                  href="https://github.com/oss-apps/split-pro"
-                  target="_blank"
-                  className="mx-auto lg:mx-0"
-                >
-                  <Button
-                    variant="outline"
-                    className="flex w-[200px] items-center gap-2 rounded-full"
-                  >
-                    <SiGithub className="size-4" /> {t('hero.star_github_button')}
-                  </Button>
-                </Link>
-              </div>
-              <div className="mt-40" />
-            </div>
-            <div className="mt-8 mb-20 flex justify-center lg:hidden">
-              <MobileScreenShot />
-            </div>
-            <div className="flex flex-col gap-20 text-center lg:text-left">
-              <p className="text-2xl">{t('features.title')}</p>
 
-              <FeatureRow>
-                <FeatureCard
-                  icon={Users}
-                  title={t('features.groups_and_friends.title')}
-                  description={t('features.groups_and_friends.description')}
-                />
-                <FeatureCard
-                  icon={Banknote}
-                  title={t('features.multiple_currencies.title')}
-                  description={t('features.multiple_currencies.description')}
-                />
-              </FeatureRow>
+        <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-5">
+          <Image
+            src="/logo.png"
+            alt=""
+            width={96}
+            height={96}
+            priority
+            className="rounded-[22px] shadow-sm dark:ring-1 dark:ring-white/15"
+          />
+          <h1 className="text-foreground text-3xl font-bold tracking-tight">{t('nav.app_name')}</h1>
+        </div>
 
-              <FeatureRow>
-                <FeatureCard
-                  icon={Split}
-                  title={t('features.unequal_split.title')}
-                  description={t('features.unequal_split.description')}
-                />
-                <FeatureCard
-                  icon={Globe}
-                  title={t('features.pwa_support.title')}
-                  description={t('features.pwa_support.description')}
-                />
-              </FeatureRow>
-
-              <FeatureRow>
-                <FeatureCard
-                  icon={FileUp}
-                  title={t('features.upload_receipts.title')}
-                  description={t('features.upload_receipts.description')}
-                />
-                <FeatureCard
-                  icon={GitFork}
-                  title={t('features.open_source.title')}
-                  description={t('features.open_source.description')}
-                />
-              </FeatureRow>
-
-              <FeatureRow>
-                <FeatureCard
-                  icon={Import}
-                  title={t('features.import_splitwise.title')}
-                  description={t('features.import_splitwise.description')}
-                />
-                <FeatureCard
-                  icon={Bell}
-                  title={t('features.push_notifications.title')}
-                  description={t('features.push_notifications.description')}
-                />
-              </FeatureRow>
-
-              <FeatureRow>
-                <FeatureCard
-                  icon={Merge}
-                  title={t('features.debt_simplification.title')}
-                  description={t('features.debt_simplification.description')}
-                />
-                <FeatureCard
-                  icon={Globe}
-                  title={t('features.i18.title')}
-                  description={t('features.i18.description')}
-                />
-              </FeatureRow>
-
-              <FeatureRow>
-                <FeatureCard
-                  icon={DollarSign}
-                  title={t('features.currency_conversion.title')}
-                  description={t('features.currency_conversion.description')}
-                />
-                <FeatureCard
-                  icon={RefreshCw}
-                  title={t('features.recurring_transactions.title')}
-                  description={t('features.recurring_transactions.description')}
-                />
-              </FeatureRow>
-
-              <FeatureRow>
-                <FeatureCard
-                  icon={Landmark}
-                  title={t('features.bank_connection.title')}
-                  description={t('features.bank_connection.description')}
-                />
-              </FeatureRow>
-            </div>
-
-            <div className="mt-24 mb-20 flex flex-col gap-8 text-center lg:text-left">
-              <a
-                href="https://www.producthunt.com/posts/splitpro?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-splitpro"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=444717&theme=light"
-                  alt="Splitpro - Free&#0032;drop&#0032;in&#0032;replacement&#0032;&#0032;to&#0032;Splitwise&#0058;&#0032;Fully&#0032;Open&#0032;source | Product Hunt"
-                  className="mx-auto h-[47px] w-[200px] lg:mx-0"
-                  width="200"
-                  height="47"
-                />
-              </a>
-              <div>
-                {t('footer.built_by')}{' '}
-                <a
-                  className="text-primary"
-                  href="https://koushik.dev"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  KM Koushik
-                </a>
-                ,{' '}
-                <a
-                  className="text-primary"
-                  href="https://github.com/krokosik"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  krokosik
-                </a>
-                {/* <p className="text-muted-foreground">
-                  A product of <a className="underline underline-offset-2">ossapps.dev</a>
-                </p> */}
-              </div>
-              <div className="flex justify-center gap-4 lg:justify-start">
-                <a
-                  className="text-primary"
-                  href="https://github.com/oss-apps/split-pro"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="sticky top-20 hidden shrink-0 lg:flex">
-            <MobileScreenShot />
+        <div className="mx-auto flex w-full max-w-md flex-col items-center gap-4">
+          <Button asChild size="lg" className="w-full">
+            <Link href="/auth/signin">{t('hero.get_started_button')}</Link>
+          </Button>
+          <div className="text-muted-foreground flex items-center gap-1 text-sm">
+            <Link href="/terms" className="flex min-h-11 items-center px-3 hover:underline">
+              {t('nav.terms')}
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/privacy" className="flex min-h-11 items-center px-3 hover:underline">
+              {t('nav.privacy')}
+            </Link>
           </div>
         </div>
       </main>
@@ -267,22 +56,6 @@ const Home = () => {
 };
 
 export default Home;
-
-const MobileScreenShot = () => {
-  const { t } = useTranslation('home');
-
-  return (
-    <BackgroundGradient>
-      <Image
-        src="/hero.webp"
-        className="bg-background rounded-[22px] border"
-        width={300}
-        height={550}
-        alt={t('hero.image_alt')}
-      />
-    </BackgroundGradient>
-  );
-};
 
 export const getServerSideProps: GetServerSideProps = async (context) => ({
   props: await customServerSideTranslations(context.locale, ['home']),

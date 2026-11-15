@@ -60,6 +60,7 @@
   "hero": {
     "add_expense_button": "Add Expense",
     "star_github_button": "Star us on github",
+    "get_started_button": "Get started",
     "image_alt": "SplitPro app preview",
     "title_rich": "Split expenses with your friends for <highlight>free</highlight>.",
     "subtitle_rich": "An <sourceLink>open source</sourceLink> alternative to SplitWise."
