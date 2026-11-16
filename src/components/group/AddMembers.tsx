@@ -199,7 +199,7 @@ const AddMembers: React.FC<{
           </div>
         ) : null}
         {emptyReason ? (
-          <p className="text-center text-sm text-gray-400">
+          <p className="text-muted-foreground text-center text-sm">
             {t(`ui.group_people_list_empty.${emptyReason}`)}
           </p>
         ) : null}

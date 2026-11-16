@@ -94,12 +94,15 @@ const ExpensesPage: NextPageWithUser = ({ user }) => {
       </Head>
       <MainLayout
         title={
-          <div className="flex items-center justify-between gap-2">
-            <Link href={`/groups/${groupId}`}>
-              <ChevronLeftIcon className="mr-1 h-6 w-6" />
+          <div className="flex min-w-0 items-center gap-1">
+            <Link
+              href={`/groups/${groupId}`}
+              className="text-primary -ml-3 flex size-11 shrink-0 items-center justify-center"
+              aria-label={t('actions.back')}
+            >
+              <ChevronLeftIcon className="size-7" />
             </Link>
-            <p className="w-full text-center text-[16px] font-normal">{t('ui.expense_details')}</p>
-            <div />
+            <p className="truncate text-lg font-semibold">{t('ui.expense_details')}</p>
           </div>
         }
         actions={

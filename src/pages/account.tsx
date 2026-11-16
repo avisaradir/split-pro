@@ -1,14 +1,4 @@
-import { SiGithub } from '@icons-pack/react-simple-icons';
-import {
-  BadgeInfo,
-  CreditCard,
-  Download,
-  DownloadCloud,
-  FileDown,
-  HeartHandshakeIcon,
-  Languages,
-  Star,
-} from 'lucide-react';
+import { BadgeInfo, CreditCard, Download, DownloadCloud, FileDown, Languages } from 'lucide-react';
 import type { GetServerSideProps } from 'next';
 import { signOut } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
@@ -16,7 +6,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo, useState } from 'react';
 import { toast } from 'sonner';
-import { AccountButton } from '~/components/Account/AccountButton';
+import { AccountButton, AccountIcon } from '~/components/Account/AccountButton';
 import { DownloadAppDrawer } from '~/components/Account/DownloadAppDrawer';
 import { DeleteAccount } from '~/components/Account/DeleteAccount';
 import { LanguagePicker } from '~/components/Account/LanguagePicker';
@@ -26,6 +16,7 @@ import { UpdateName } from '~/components/Account/UpdateDetails';
 import MainLayout from '~/components/Layout/MainLayout';
 import { EntityAvatar } from '~/components/ui/avatar';
 import { Button } from '~/components/ui/button';
+import { ListGroup } from '~/components/ui/list-group';
 import { env } from '~/env';
 import { customServerSideTranslations } from '~/utils/i18n/server';
 import { BankConnection } from '~/components/Account/BankAccount/BankConnection';
@@ -103,12 +94,12 @@ const AccountPage: NextPageWithUser<{
         <title>{t('account.title')}</title>
       </Head>
       <MainLayout title={t('account.title')} header={header}>
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <EntityAvatar entity={userQuery.data} size={50} />
-            <div>
-              <div className="text-xl font-semibold">{userQuery.data?.name}</div>
-              <div className="text-sm text-gray-500">{userQuery.data?.email}</div>
+        <div className="bg-card flex items-center justify-between gap-3 rounded-xl px-4 py-3">
+          <div className="flex min-w-0 items-center gap-3">
+            <EntityAvatar entity={userQuery.data} size={56} />
+            <div className="min-w-0">
+              <div className="truncate text-xl font-semibold">{userQuery.data?.name}</div>
+              <div className="text-muted-foreground truncate text-sm">{userQuery.data?.email}</div>
             </div>
           </div>
           {!userQuery.isPending && (
@@ -121,79 +112,82 @@ const AccountPage: NextPageWithUser<{
             />
           )}
         </div>
-        <div className="mt-8 flex flex-col gap-4">
-          <LanguagePicker>
-            <AccountButton>
-              <Languages className="size-5 text-green-500" />
-              {t('account.change_language')}
+        <div className="mt-8 flex flex-col gap-8">
+          <ListGroup>
+            <LanguagePicker>
+              <AccountButton>
+                <AccountIcon className="bg-green-600">
+                  <Languages />
+                </AccountIcon>
+                {t('account.change_language')}
+              </AccountButton>
+            </LanguagePicker>
+
+            <BankConnection
+              bankConnectionEnabled={bankConnectionEnabled}
+              bankConnection={bankConnection}
+            >
+              <AccountButton>
+                <AccountIcon className="bg-teal-600">
+                  <CreditCard />
+                </AccountIcon>
+                {userQuery.data?.obapiProviderId ? t('actions.reconnect') : t('actions.connect')}{' '}
+                {t('bank_transactions.to_bank')}
+              </AccountButton>
+            </BankConnection>
+
+            <SubscribeNotification />
+          </ListGroup>
+
+          <ListGroup>
+            <DownloadAppDrawer>
+              <AccountButton>
+                <AccountIcon className="bg-blue-600">
+                  <Download />
+                </AccountIcon>
+                {t('account.download_app')}
+              </AccountButton>
+            </DownloadAppDrawer>
+
+            <AccountButton onClick={downloadData} disabled={downloading} loading={downloading}>
+              <AccountIcon className="bg-indigo-600">
+                <FileDown />
+              </AccountIcon>
+              {t('account.download_splitpro_data')}
             </AccountButton>
-          </LanguagePicker>
 
-          <BankConnection
-            bankConnectionEnabled={bankConnectionEnabled}
-            bankConnection={bankConnection}
-          >
-            <AccountButton>
-              <CreditCard className="size-5 text-teal-500" />
-              {userQuery.data?.obapiProviderId ? t('actions.reconnect') : t('actions.connect')}{' '}
-              {t('bank_transactions.to_bank')}
+            <AccountButton href="/import-splitwise">
+              <AccountIcon className="bg-violet-600">
+                <DownloadCloud />
+              </AccountIcon>
+              {t('account.import_from_splitwise')}
             </AccountButton>
-          </BankConnection>
+          </ListGroup>
 
-          <AccountButton href="https://github.com/oss-apps/split-pro">
-            <SiGithub className="size-5" />
-            {t('account.star_on_github')}
-          </AccountButton>
+          <ListGroup>
+            {feedBackPossible && <SubmitFeedback />}
 
-          <AccountButton href="https://github.com/sponsors/krokosik">
-            <HeartHandshakeIcon className="size-5 text-pink-600" />
-            {t('account.support_us')}
-          </AccountButton>
+            <DebugInfo>
+              <AccountButton>
+                <AccountIcon className="bg-gray-500">
+                  <BadgeInfo />
+                </AccountIcon>
+                {t('account.debug_info')}
+              </AccountButton>
+            </DebugInfo>
+          </ListGroup>
 
-          {feedBackPossible && <SubmitFeedback />}
-
-          <SubscribeNotification />
-
-          <AccountButton href="https://www.producthunt.com/products/splitpro/reviews/new">
-            <Star className="size-5 text-yellow-400" />
-            {t('account.write_review')}
-          </AccountButton>
-
-          <DownloadAppDrawer>
-            <AccountButton>
-              <Download className="size-5 text-blue-500" />
-              {t('account.download_app')}
-            </AccountButton>
-          </DownloadAppDrawer>
-
-          <AccountButton onClick={downloadData} disabled={downloading} loading={downloading}>
-            <FileDown className="size-5 text-teal-500" />
-            {t('account.download_splitpro_data')}
-          </AccountButton>
-
-          <AccountButton href="/import-splitwise">
-            <DownloadCloud className="size-5 text-violet-500" />
-            {t('account.import_from_splitwise')}
-          </AccountButton>
-
-          <DebugInfo>
-            <AccountButton>
-              <BadgeInfo className="size-5 text-red-700" />
-              {t('account.debug_info')}
-            </AccountButton>
-          </DebugInfo>
+          <ListGroup>
+            <Button
+              variant="ghost"
+              className="bg-card text-destructive hover:bg-muted active:bg-muted w-full rounded-none font-normal hover:opacity-100"
+              onClick={onSignOut}
+            >
+              {t('account.logout')}
+            </Button>
+          </ListGroup>
         </div>
-
-        <div className="mt-2 flex justify-center">
-          <Button
-            variant="ghost"
-            className="text-orange-600 hover:text-orange-600/90"
-            onClick={onSignOut}
-          >
-            {t('account.logout')}
-          </Button>
-        </div>
-        <div className="mt-6 flex justify-center">
+        <div className="mt-4 flex justify-center">
           <DeleteAccount />
         </div>
       </MainLayout>

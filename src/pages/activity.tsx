@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { InfiniteScroll } from '~/components/InfiniteScroll';
 import { flattenPages, nextPageParam } from '~/utils/pagination';
 import MainLayout from '~/components/Layout/MainLayout';
+import { ListGroup } from '~/components/ui/list-group';
 import { EntityAvatar } from '~/components/ui/avatar';
 import { type NextPageWithUser } from '~/types';
 import { api } from '~/utils/api';
@@ -30,10 +31,10 @@ function getPaymentString(
   if (isDeleted) {
     return null;
   } else if (0n === expenseUserAmt) {
-    return <div className="text-sm text-gray-400">{t('ui.not_involved')}</div>;
+    return <div className="text-muted-foreground text-sm">{t('ui.not_involved')}</div>;
   } else if (isSettlement) {
     return (
-      <div className={`${user.id === paidBy ? 'text-emerald-500' : 'text-orange-500'} text-sm`}>
+      <div className={`${user.id === paidBy ? 'text-positive' : 'text-negative'} text-sm`}>
         {t(user.id === paidBy ? 'activity.you_paid_amount' : 'activity.you_received_amount', {
           amount: toUIString(amount),
         })}
@@ -42,7 +43,7 @@ function getPaymentString(
   } else {
     return (
       <div
-        className={`${(user.id === paidBy) !== amount < 0n ? 'text-emerald-500' : 'text-orange-500'} text-sm`}
+        className={`${(user.id === paidBy) !== amount < 0n ? 'text-positive' : 'text-negative'} text-sm`}
       >
         {t(
           (user.id === paidBy) !== amount < 0n
@@ -89,69 +90,71 @@ const ActivityPage: NextPageWithUser = ({ user }) => {
       >
         <div className="flex flex-col gap-4">
           {!expensesQuery.isError && !expenseItems.length ? (
-            <div className="mt-[30vh] text-center text-gray-400">{t('ui.no_activity')}</div>
+            <div className="text-muted-foreground mt-[30vh] text-center">{t('ui.no_activity')}</div>
           ) : null}
-          {expenseItems.map((e) => {
-            const { toUIString } = getCurrencyHelpers({
-              locale: i18n.language,
-              currency: e.expense.currency,
-            });
+          <ListGroup className={expenseItems.length ? undefined : 'hidden'}>
+            {expenseItems.map((e) => {
+              const { toUIString } = getCurrencyHelpers({
+                locale: i18n.language,
+                currency: e.expense.currency,
+              });
 
-            return (
-              <Link
-                href={`/expenses/${e.expenseId}`}
-                key={e.expenseId}
-                className="group/expense flex gap-2"
-              >
-                <div className="mt-1">
-                  <EntityAvatar entity={e.expense.paidByUser} size={30} />
-                </div>
-                <div>
-                  {e.expense.deletedByUser ? (
-                    <p className="text-red-500 opacity-70">
-                      {t('activity.user_deleted_expense', {
-                        actor: e.expense.deletedByUser.id === user.id ? 'you' : 'other',
-                        user: displayName(e.expense.deletedByUser),
-                        expense: e.expense.name,
-                      })}
-                    </p>
-                  ) : (
-                    <p className="text-gray-300">
-                      {t(
-                        e.expense.paidByUser.id === user.id
-                          ? e.expense.amount > 0n
-                            ? 'activity.you_paid_for_expense'
-                            : 'activity.you_received_for_expense'
-                          : e.expense.amount > 0n
-                            ? 'activity.user_paid_for_expense'
-                            : 'activity.user_received_for_expense',
-                        {
-                          user: displayName(e.expense.paidByUser),
-                          amount: toUIString(e.expense.amount),
+              return (
+                <Link
+                  href={`/expenses/${e.expenseId}`}
+                  key={e.expenseId}
+                  className="group/expense hover:bg-muted active:bg-muted flex gap-3 px-4 py-3 transition-colors"
+                >
+                  <div className="mt-0.5 shrink-0">
+                    <EntityAvatar entity={e.expense.paidByUser} size={36} />
+                  </div>
+                  <div className="min-w-0">
+                    {e.expense.deletedByUser ? (
+                      <p className="text-destructive opacity-70">
+                        {t('activity.user_deleted_expense', {
+                          actor: e.expense.deletedByUser.id === user.id ? 'you' : 'other',
+                          user: displayName(e.expense.deletedByUser),
                           expense: e.expense.name,
-                        },
-                      )}
-                    </p>
-                  )}
+                        })}
+                      </p>
+                    ) : (
+                      <p className="text-foreground">
+                        {t(
+                          e.expense.paidByUser.id === user.id
+                            ? e.expense.amount > 0n
+                              ? 'activity.you_paid_for_expense'
+                              : 'activity.you_received_for_expense'
+                            : e.expense.amount > 0n
+                              ? 'activity.user_paid_for_expense'
+                              : 'activity.user_received_for_expense',
+                          {
+                            user: displayName(e.expense.paidByUser),
+                            amount: toUIString(e.expense.amount),
+                            expense: e.expense.name,
+                          },
+                        )}
+                      </p>
+                    )}
 
-                  {getPaymentString(
-                    user,
-                    e.expense.amount,
-                    e.expense.paidBy,
-                    e.amount,
-                    e.expense.splitType === SplitType.SETTLEMENT,
-                    t,
-                    toUIString,
-                    !!e.expense.deletedBy,
-                  )}
-                  <p className="flex items-center gap-1 text-xs text-gray-500">
-                    {toUIDate(e.expense.expenseDate)}
-                    {null !== e.expense.recurrenceId && <RecurringExpenseIndicator />}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
+                    {getPaymentString(
+                      user,
+                      e.expense.amount,
+                      e.expense.paidBy,
+                      e.amount,
+                      e.expense.splitType === SplitType.SETTLEMENT,
+                      t,
+                      toUIString,
+                      !!e.expense.deletedBy,
+                    )}
+                    <p className="text-muted-foreground flex items-center gap-1 text-xs">
+                      {toUIDate(e.expense.expenseDate)}
+                      {null !== e.expense.recurrenceId && <RecurringExpenseIndicator />}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </ListGroup>
           <InfiniteScroll
             hasNextPage={expensesQuery.hasNextPage}
             isFetching={expensesQuery.isFetching}

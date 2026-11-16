@@ -158,7 +158,7 @@ export const SelectUserOrGroup: React.FC<{
 
   if (group) {
     return (
-      <div className="mt-4 text-center text-red-500">
+      <div className="text-destructive mt-4 text-center">
         {t('expense_details.add_expense_details.select_user_or_group.only_one_group_time')}
       </div>
     );
@@ -216,12 +216,12 @@ export const SelectUserOrGroup: React.FC<{
         ) : null}
         {filteredFriends?.length ? (
           <>
-            <div className="font-normal text-gray-500">{t('actors.friends')}</div>
+            <div className="text-muted-foreground font-normal">{t('actors.friends')}</div>
             {filteredFriends.map((f) => (
               <button
                 disabled={adding}
                 key={f.id}
-                className="flex w-full items-center justify-between border-b border-gray-900 py-4"
+                className="border-separator flex w-full items-center justify-between border-b py-4"
                 onClick={() => handleFriendClick(f)}
               >
                 <div className="flex min-w-0 items-center gap-4">
@@ -240,12 +240,12 @@ export const SelectUserOrGroup: React.FC<{
 
         {filteredOtherUsers?.length ? (
           <>
-            <div className="font-normal text-gray-500">{t('actors.other_users')}</div>
+            <div className="text-muted-foreground font-normal">{t('actors.other_users')}</div>
             {filteredOtherUsers.map((f) => (
               <button
                 disabled={adding}
                 key={f.id}
-                className="flex w-full items-center justify-between border-b border-gray-900 py-4"
+                className="border-separator flex w-full items-center justify-between border-b py-4"
                 onClick={() => handleFriendClick(f)}
               >
                 <div className="flex min-w-0 items-center gap-4">
@@ -265,13 +265,13 @@ export const SelectUserOrGroup: React.FC<{
         {/*Can't select multiple groups or groups with outside ppl */}
         {filteredGroups?.length && 1 === participants.length ? (
           <>
-            <div className="mt-8 text-gray-500">{t('actors.groups')}</div>
+            <div className="text-muted-foreground mt-8">{t('actors.groups')}</div>
             <div className="mt-2 flex flex-col gap-1">
               {filteredGroups.map((g) => (
                 <button
                   disabled={adding}
                   key={g.groupId}
-                  className="border-b border-gray-900 py-4"
+                  className="border-separator border-b py-4"
                   onClick={() => onGroupSelect(g.group)}
                 >
                   <div className="flex min-w-0 items-center gap-4">
@@ -296,7 +296,7 @@ export const SelectUserOrGroup: React.FC<{
               height={250}
             />
             {emptyReason ? (
-              <p className="text-center text-sm text-gray-400">
+              <p className="text-muted-foreground text-center text-sm">
                 {t(`ui.people_list_empty.${emptyReason}`)}
               </p>
             ) : null}

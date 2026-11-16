@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '../../ui/command';
 import { AppDrawer } from '../../ui/drawer';
-import { Check, ChevronRight, Landmark } from 'lucide-react';
+import { Check, Landmark } from 'lucide-react';
 import { cn } from '~/lib/utils';
 import { api } from '~/utils/api';
-import { Button } from '../../ui/button';
 import Image from 'next/image';
+import { AccountButton, AccountIcon } from '../AccountButton';
 import { useTranslation } from 'next-i18next';
 
 export const BankAccountSelect = ({
@@ -34,16 +34,12 @@ export const BankAccountSelect = ({
   return (
     <AppDrawer
       trigger={
-        <Button
-          variant="ghost"
-          className="text-md hover:text-foreground/80 w-full justify-between px-0"
-        >
-          <div className="flex items-center gap-4">
-            <Landmark className="h-5 w-5 text-blue-500" />
-            <p>{t('bank_transactions.choose_bank_provider')}</p>
-          </div>
-          <ChevronRight className="h-6 w-6 text-gray-500" />
-        </Button>
+        <AccountButton>
+          <AccountIcon className="bg-blue-600">
+            <Landmark />
+          </AccountIcon>
+          <p>{t('bank_transactions.choose_bank_provider')}</p>
+        </AccountButton>
       }
       title={t('bank_transactions.select_bank_provider')}
       className="h-[70vh]"

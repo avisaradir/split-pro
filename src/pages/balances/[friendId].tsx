@@ -74,11 +74,15 @@ const FriendPage: NextPageWithUser = ({ user }) => {
       </Head>
       <MainLayout
         title={
-          <div className="flex items-center gap-2">
-            <Link href="/balances">
-              <ChevronLeftIcon className="mr-1 h-6 w-6" />
+          <div className="flex min-w-0 items-center gap-1">
+            <Link
+              href="/balances"
+              className="text-primary -ml-3 flex size-11 shrink-0 items-center justify-center"
+              aria-label={t('actions.back')}
+            >
+              <ChevronLeftIcon className="size-7" />
             </Link>
-            <p className="text-lg font-normal">{displayName(friendQuery.data)}</p>
+            <p className="truncate text-lg font-semibold">{displayName(friendQuery.data)}</p>
           </div>
         }
         actions={
@@ -160,8 +164,12 @@ const FriendPage: NextPageWithUser = ({ user }) => {
         header={
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-2">
-              <Link href="/balances">
-                <ChevronLeftIcon className="mr-1 h-6 w-6" />
+              <Link
+                href="/balances"
+                className="text-primary -ml-3 flex size-11 shrink-0 items-center justify-center"
+                aria-label={t('actions.back')}
+              >
+                <ChevronLeftIcon className="size-7" />
               </Link>
               <EntityAvatar entity={friendQuery.data} size={25} />
               {displayName(friendQuery.data)}
@@ -177,7 +185,7 @@ const FriendPage: NextPageWithUser = ({ user }) => {
               <SettleUp balances={balances.data} friend={friendQuery.data}>
                 <Button
                   size="sm"
-                  className="flex w-[150px] items-center gap-2 rounded-md border bg-cyan-500 px-3 text-sm font-normal text-black focus:bg-cyan-600 focus:ring-0 focus-visible:outline-hidden lg:w-[180px]"
+                  className="w-[150px] lg:w-[180px]"
                   disabled={!balances.data?.length}
                 >
                   <HandCoins className="size-4" /> {t('actions.settle_up')}

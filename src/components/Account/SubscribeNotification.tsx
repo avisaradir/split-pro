@@ -5,7 +5,7 @@ import { useAppStore } from '~/store/appStore';
 import { api } from '~/utils/api';
 import { useTranslation } from 'next-i18next';
 
-import { AccountButton } from './AccountButton';
+import { AccountButton, AccountIcon } from './AccountButton';
 
 const base64ToUint8Array = (base64: string) => {
   const padding = '='.repeat((4 - (base64.length % 4)) % 4);
@@ -99,12 +99,16 @@ export const SubscribeNotification: React.FC = () => {
     <AccountButton onClick={isSubscribed ? unSubscribeNotification : onRequestNotification}>
       {!isSubscribed ? (
         <>
-          <Bell className="h-5 w-5 text-red-400" />
+          <AccountIcon className="bg-red-600">
+            <Bell />
+          </AccountIcon>
           {t('account.notifications.enable_notification')}
         </>
       ) : (
         <>
-          <BellOff className="h-5 w-5 text-red-400" />
+          <AccountIcon className="bg-red-600">
+            <BellOff />
+          </AccountIcon>
           {t('account.notifications.disable_notification')}
         </>
       )}

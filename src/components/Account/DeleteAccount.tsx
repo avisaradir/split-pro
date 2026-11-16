@@ -59,7 +59,7 @@ export const DeleteAccount = () => {
   return (
     <AlertDialog open={open} onOpenChange={(value) => !deleting && setOpen(value)}>
       <AlertDialogTrigger asChild>
-        <Button variant="ghost" className="text-orange-600 hover:text-orange-600/90">
+        <Button variant="ghost" className="text-destructive px-4">
           {t('account.deletion.action')}
         </Button>
       </AlertDialogTrigger>

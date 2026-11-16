@@ -39,7 +39,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+        className="text-muted-foreground hover:text-foreground flex items-center gap-2 px-2"
       >
         <Globe className="h-4 w-4" />
         <span className="hidden sm:inline">{currentLanguage?.name}</span>
@@ -52,22 +52,19 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
           <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
 
           {/* Dropdown */}
-          <div className="absolute top-full right-0 z-20 mt-1 min-w-[120px] rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
+          <div className="bg-popover text-popover-foreground absolute top-full right-0 z-20 mt-1 min-w-[160px] overflow-hidden rounded-xl shadow-lg">
             <div className="py-1">
               {supportedLanguages.map((language) => (
                 <button
                   key={language.code}
                   onClick={() => handleLanguageChange(language.code)}
-                  className={`block w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                    i18n.language === language.code
-                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
-                      : 'text-gray-700 dark:text-gray-300'
+                  aria-current={i18n.language === language.code ? 'true' : undefined}
+                  className={`hover:bg-muted flex min-h-11 w-full items-center justify-between px-4 text-left text-base ${
+                    i18n.language === language.code ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {language.name}
-                  {i18n.language === language.code && (
-                    <span className="ml-2 text-blue-600 dark:text-blue-400">✓</span>
-                  )}
+                  {i18n.language === language.code && <span className="text-primary ml-2">✓</span>}
                 </button>
               ))}
             </div>

@@ -18,6 +18,8 @@ await jiti.import('./src/env');
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Hide the Next.js dev tools badge; compile and runtime errors still show.
+  devIndicators: false,
   reactCompiler: true,
   output: parseEnvBoolean(process.env.DOCKER_OUTPUT) ? 'standalone' : undefined,
   transpilePackages: ['@t3-oss/env-nextjs', '@t3-oss/env-core'],
