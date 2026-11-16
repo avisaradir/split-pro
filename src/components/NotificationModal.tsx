@@ -112,7 +112,7 @@ export const NotificationModal: React.FC = () => {
         <AlertDialogFooter>
           <AlertDialogCancel onClick={remindLater}>{t('actions.remind_later')}</AlertDialogCancel>
           <AlertDialogAction onClick={onRequestNotification}>
-            <Bell className="mr-1 h-4" />
+            <Bell className="me-1 h-4" />
             {t('notifications.subscribe')}
           </AlertDialogAction>
         </AlertDialogFooter>

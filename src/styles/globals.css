@@ -232,6 +232,14 @@
     @apply bg-background text-foreground h-full font-sans text-base antialiased;
     -webkit-tap-highlight-color: transparent;
   }
+
+  /* User-entered names and descriptions are often Latin inside an RTL page. Let such a line take
+     its direction from its own text, so truncation clips its end, not its start. Apply only to
+     elements that hold nothing but user content: mixed sentences must keep the page direction. */
+  [dir='rtl'] .user-text {
+    unicode-bidi: plaintext;
+    text-align: right;
+  }
 }
 
 html {

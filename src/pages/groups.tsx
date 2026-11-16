@@ -67,7 +67,7 @@ const BalancePage: NextPageWithUser = () => {
             <div className="mt-[30vh] flex flex-col items-center justify-center gap-20">
               <CreateGroup>
                 <Button>
-                  <PlusIcon className="mr-2 h-4 w-4" />
+                  <PlusIcon className="me-2 h-4 w-4" />
                   {t('actions.create')}
                 </Button>
               </CreateGroup>
@@ -92,7 +92,7 @@ const BalancePage: NextPageWithUser = () => {
               {archivedGroupQuery.data && archivedGroupQuery.data.length > 0 && (
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value="archived-groups">
-                    <AccordionTrigger className="text-muted-foreground text-left text-sm">
+                    <AccordionTrigger className="text-muted-foreground text-start text-sm">
                       {t('group_details.group_info.archived')} ({archivedGroupQuery.data.length})
                     </AccordionTrigger>
                     <AccordionContent>

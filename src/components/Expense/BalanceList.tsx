@@ -71,7 +71,7 @@ export const BalanceList: React.FC<{
         return (
           <AccordionItem key={user.id} value={displayName(user)}>
             <AccordionTrigger className="overflow-hidden hover:no-underline">
-              <div className="mr-2 flex min-w-0 flex-1 items-center gap-3">
+              <div className="me-2 flex min-w-0 flex-1 items-center gap-3">
                 <EntityAvatar entity={user} />
                 <div className="text-foreground line-clamp-2 min-w-0 break-words">
                   {Object.values(total).every((amount) => 0n === amount) ? (
@@ -94,7 +94,7 @@ export const BalanceList: React.FC<{
                           amount: (
                             <span
                               className={clsx(
-                                'text-right',
+                                'text-end',
                                 0 < totalAmount[1] ? 'text-positive' : 'text-negative',
                               )}
                             >
@@ -145,7 +145,7 @@ export const BalanceList: React.FC<{
                           key={friendId + currency}
                           className="flex h-12 w-full items-center justify-between border-t-2"
                         >
-                          <div className="ml-5 flex cursor-pointer items-center gap-3 text-sm">
+                          <div className="ms-5 flex cursor-pointer items-center gap-3 text-sm">
                             <EntityAvatar entity={friend} size={20} />
                             <div className="text-foreground">
                               {t(0 < amount ? 'balance_list.pays' : 'balance_list.gets', {

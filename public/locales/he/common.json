@@ -1,419 +1,579 @@
 {
   "account": {
-    "change_language": "שנה שפה",
+    "change_language": "שינוי שפה",
     "change_language_details": {
       "messages": {
         "language_changed": "השפה שונתה בהצלחה"
       },
-      "placeholder": "בחר שפה",
-      "title": "בחר שפה"
+      "no_language_found": "לא נמצאה שפה.",
+      "placeholder": "בחירת שפה",
+      "title": "בחירת שפה"
     },
-    "debug_info": "",
-    "debug_info_details": {
-      "copy_failed": "",
-      "description": "",
-      "git": "",
-      "new_version_available": "",
-      "title": "",
-      "user_agent": "",
-      "version": "גרסה"
-    },
-    "default_balance_currency": "מטבע ברירת מחדל ליתרה",
-    "download_app": "הורד יישומון",
+    "download_app": "הורדת האפליקציה",
     "download_app_details": {
-      "download_as_pwa": "ניתן להוריד את ספליט-פרו בתור PWA למסך הבית שלך.",
-      "title": "הורד יישומון",
-      "using_android": "",
-      "using_ios": "",
-      "video": ""
+      "download_as_pwa": "אפשר להתקין את SplitPro כאפליקציית PWA במסך הבית.",
+      "title": "הורדת האפליקציה",
+      "using_android": "משתמשים ב-Android? צפו ב",
+      "using_ios": "משתמשים ב-iOS? צפו ב",
+      "video": "סרטון"
     },
-    "download_splitpro_data": "",
+    "download_splitpro_data": "הורדת הנתונים שלי מ-SplitPro",
+    "default_balance_currency": "מטבע ברירת מחדל ליתרות",
     "edit_name": {
+      "apply_avatar": "החלת תמונת פרופיל",
       "avatar_label": "תמונת פרופיל",
-      "placeholder": "הכנס שם",
-      "select_avatar": "בחר תמונה",
-      "title": "ערוך פרטים"
+      "avatar_preview": "תצוגה מקדימה של תמונת הפרופיל",
+      "placeholder": "הזנת שם",
+      "remove_avatar": "הסרת תמונת פרופיל",
+      "select_avatar": "בחירת תמונה",
+      "zoom": "זום",
+      "title": "עריכת פרטים"
     },
     "follow_on_x": "עקבו אחרינו ב-X",
-    "import_from_splitwise": "יבוא מ-Splitwise",
+    "import_from_splitwise": "ייבוא מ-Splitwise",
     "import_from_splitwise_details": {
-      "choose_file": "בחר קובץ",
-      "export_splitwise_data_button": "",
-      "follow_to_export_splitwise_data": "",
+      "choose_file": "בחירת קובץ",
+      "export_splitwise_data_button": "ייצוא נתונים מ-Splitwise",
+      "follow_to_export_splitwise_data": "לייצוא הנתונים מ-Splitwise יש לעבור לקישור הזה",
       "messages": {
-        "import_success": ""
+        "import_success": "הייבוא הושלם בהצלחה"
       },
-      "no_file_chosen": "",
-      "note": ""
+      "no_file_chosen": "לא נבחר קובץ",
+      "note": "לתשומת לבך: כרגע אפשר לייבא רק חברים וקבוצות, בלי עסקאות. אנחנו עובדים על זה."
     },
     "logout": "התנתקות",
     "messages": {
-      "submit_error": "",
-      "submit_success": "פרטים עודכנו"
+      "submit_error": "עדכון הפרטים נכשל",
+      "submit_success": "הפרטים עודכנו"
     },
     "notifications": {
-      "disable_notification": "בטל התראה",
-      "enable_notification": "אפשר התראה",
+      "disable_notification": "כיבוי התראות",
+      "enable_notification": "הפעלת התראות",
       "messages": {
-        "notification_granted": ""
+        "notification_granted": "מעכשיו יישלחו אליך התראות"
       }
     },
-    "star_on_github": "שימו לנו כוכב ב-GitHub",
-    "submit_feedback": "",
+    "star_on_github": "סמנו אותנו בכוכב ב-GitHub",
+    "submit_feedback": "שליחת משוב",
     "submit_feedback_details": {
-      "placeholder": "",
-      "title": ""
+      "placeholder": "כתבו כאן את המשוב שלכם",
+      "title": "שליחת משוב",
+      "messages": {
+        "submit_error": "שליחת המשוב נכשלה",
+        "submit_success": "המשוב נשלח"
+      }
     },
-    "support_us": "",
+    "support_us": "תמיכה בפרויקט",
     "title": "חשבון",
-    "write_review": ""
+    "write_review": "כתיבת ביקורת",
+    "debug_info": "מידע לניפוי באגים",
+    "debug_info_details": {
+      "title": "מידע לניפוי באגים",
+      "description": "יש להדביק את המידע הבא בעת פתיחת פנייה לתמיכה:",
+      "user_agent": "UserAgent",
+      "git": "Git",
+      "version": "גרסה",
+      "new_version_available": "יש גרסה חדשה:",
+      "copy_failed": "העתקת המידע ללוח נכשלה",
+      "send_test_notification": "שליחת התראת בדיקה",
+      "test_notification_sent": "התראת הבדיקה נשלחה",
+      "test_notification_failed": "לא ניתן היה לשלוח התראת בדיקה"
+    },
+    "deletion": {
+      "action": "מחיקת החשבון",
+      "title": "למחוק את החשבון?",
+      "description": "אי אפשר לבטל את הפעולה הזו. פרטי הזהות וההתחברות שלך יימחקו, ותנותק/י מכל המכשירים. הוצאות משותפות, הערות, קבלות, חברות בקבוצות ויתרות פתוחות יישארו תחת „משתמש שנמחק”. מידע אישי שנכתב בתוכן משותף יישאר. הבעלות על קבוצות תעבור לחבר/ה אחר/ת בקבוצה כשהדבר אפשרי. הוצאות קבועות שיצרת יופסקו. לפני שממשיכים, אפשר להוריד את הנתונים שלך מ-SplitPro בדף החשבון.",
+      "confirm": "מחיקת החשבון לצמיתות",
+      "error": "לא ניתן היה למחוק את החשבון. כדאי לנסות שוב."
+    }
   },
   "actions": {
-    "add_expense": "",
-    "back": "",
-    "cancel": "",
-    "close": "",
-    "confirm": "",
-    "connect": "",
-    "copy": "",
-    "create": "",
-    "edit_expense": "",
-    "export": "",
-    "fetch": "",
-    "import": "",
-    "invite": "",
-    "leave": "",
-    "next": "",
-    "reconnect": "",
-    "save": "",
-    "settle_up": "",
-    "submit": ""
+    "add_expense": "הוספת הוצאה",
+    "back": "חזרה",
+    "cancel": "ביטול",
+    "close": "סגירה",
+    "copy": "העתקה",
+    "confirm": "אישור",
+    "create": "יצירה",
+    "edit_expense": "עריכת הוצאה",
+    "export": "ייצוא",
+    "fetch": "טעינה",
+    "import": "ייבוא",
+    "invite": "הזמנה",
+    "leave": "עזיבה",
+    "next": "הבא",
+    "save": "שמירה",
+    "settle_up": "סגירת חשבון",
+    "share": "שיתוף",
+    "submit": "שליחה",
+    "reconnect": "התחברות מחדש",
+    "connect": "חיבור",
+    "remind_later": "להזכיר לי מאוחר יותר",
+    "retry": "לנסות שוב"
   },
   "actors": {
-    "all": "",
-    "friends": "",
-    "groups": "",
-    "members": "",
-    "owner": "",
-    "you": "",
-    "you_accusativus": "",
-    "you_dativus": ""
+    "deleted_user": "משתמש שנמחק",
+    "all": "הכול",
+    "friends": "חברים",
+    "other_users": "משתמשים אחרים",
+    "groups": "קבוצות",
+    "owner": "בעלים",
+    "you": "את/ה"
   },
   "auth": {
-    "continue_with": "",
-    "email_placeholder": "",
-    "no_providers_configured": "",
-    "no_providers_instructions": "",
-    "otp_sent": "",
-    "send_magic_link": "",
-    "sending": "",
-    "setup_instructions": "",
-    "trouble_logging_in": ""
-  },
-  "bank_transactions": {
-    "choose_bank_provider": "",
-    "no_bank_providers_found": "",
-    "plaid": {
-      "bank_connected_successfully": "",
-      "bank_connection_cancelled": "",
-      "bank_connection_failed": ""
-    },
-    "search_bank": "",
-    "select_bank_provider": "",
-    "to_bank": ""
+    "continue_with": "המשך עם {provider}",
+    "email_placeholder": "כתובת אימייל",
+    "no_providers_configured": "לא הוגדרו ספקי התחברות",
+    "no_providers_instructions": "כדי להתחבר יש להגדיר לפחות ספק התחברות אחד. פרטים ב",
+    "otp_sent": "שלחנו אליך אימייל עם קוד חד-פעמי. יש לבדוק את תיבת הדואר וללחוץ על הקישור שבהודעה כדי להתחבר.",
+    "send_magic_link": "שליחת קישור התחברות",
+    "sending": "שולח...",
+    "setup_instructions": "הוראות ההתקנה ב-Docker",
+    "trouble_logging_in": "בעיה בהתחברות? אפשר לפנות אל"
   },
   "currency_conversion": {
-    "amount_to_receive": "",
-    "description": "",
-    "exchange_rate": "",
-    "fetching_rate": "",
-    "rate": "",
-    "success_toast": "",
-    "title": ""
+    "amount_to_receive": "סכום לקבלה",
+    "description": "המרת הסכום למטבע אחר.",
+    "exchange_rate": "שער חליפין",
+    "fetching_rate": "טוען שער...",
+    "rate": "שער",
+    "success_toast": "המרת המטבע נשמרה בהצלחה",
+    "title": "המרת מטבע",
+    "amount_aria_label": "סכום",
+    "converted_amount_aria_label": "סכום לאחר המרה"
   },
   "errors": {
-    "currency_conversion_error": "",
-    "currency_conversion_failed": "",
-    "currency_conversion_malformed": "",
-    "email_invalid": "",
-    "email_required": "",
-    "feedback_min_length": "",
-    "feedback_required": "",
-    "group_balances_malformed": "",
-    "group_name_update_failed": "",
-    "import_failed": "",
-    "invalid_cron_expression": "",
-    "invalid_currency_code": "",
-    "language_change_failed": "",
-    "less_than": "",
-    "name_required": "",
-    "no_providers": "",
-    "notification_not_supported": "",
-    "otp_invalid": "",
-    "otp_required": "",
-    "recurrence_delete_failed": "",
-    "recurrence_update_failed": "",
-    "request_error": "",
-    "saving_expense": "",
-    "setting_update_failed": "",
-    "signin_error": "",
-    "signup_disabled": "",
-    "something_went_wrong": "",
-    "subscribe_error": "",
-    "unsubscribe_error": "",
-    "upload_failed": "",
-    "uploading_error": "",
-    "valid_email": ""
+    "currency_conversion_error": "שגיאה בשמירת המרת המטבע",
+    "email_invalid": "כתובת האימייל אינה תקינה, יש לנסות להתחבר שוב.",
+    "no_providers": "שגיאה בטעינת ספקי ההתחברות. יש לבדוק את יומני השרת.",
+    "email_required": "יש להזין כתובת אימייל",
+    "feedback_min_length": "המשוב צריך להכיל לפחות 10 תווים",
+    "feedback_required": "יש לכתוב משוב",
+    "add_member_failed": "הוספת החבר/ה לקבוצה נכשלה",
+    "group_name_update_failed": "שגיאה בעדכון שם הקבוצה",
+    "import_failed": "שגיאה בייבוא הקובץ",
+    "invalid_currency_code": "קוד מטבע לא תקין: {code}",
+    "invalid_split": "לפני השמירה יש לעדכן מי חייב בהוצאה הזו.",
+    "language_change_failed": "שגיאה בשינוי השפה",
+    "less_than": "גודל הקובץ צריך להיות קטן מ-{size}MB",
+    "image_compression_failed": "דחיסת התמונה נכשלה, מנסה להעלות את הקובץ המקורי",
+    "name_required": "יש להזין שם",
+    "notification_not_supported": "התראות אינן נתמכות",
+    "otp_invalid": "הקוד החד-פעמי שגוי",
+    "otp_required": "יש להזין קוד חד-פעמי",
+    "request_error": "שגיאה בבקשת התראות",
+    "saving_expense": "שגיאה בשמירת ההוצאה",
+    "setting_update_failed": "עדכון ההגדרה נכשל",
+    "signin_error": "אירעה שגיאה בהתחברות: {error}",
+    "signup_disabled": "ההרשמה של חשבונות חדשים מושבתת בשרת הזה",
+    "something_went_wrong": "משהו השתבש",
+    "subscribe_error": "לא ניתן להירשם להתראות",
+    "unsubscribe_error": "שגיאה בביטול ההרשמה להתראות",
+    "upload_failed": "העלאת הקובץ נכשלה",
+    "uploading_error": "שגיאה בהעלאת הקובץ",
+    "valid_email": "יש להזין כתובת אימייל תקינה",
+    "group_balances_malformed": "נתוני היתרות של הקבוצה פגומים. אפשר לדווח על הבעיה או לנסות לחשב מחדש.",
+    "currency_conversion_malformed": "נתוני המרת המטבע פגומים",
+    "invalid_cron_expression": "ביטוי cron לא תקין",
+    "currency_conversion_failed": "המרת המטבעות נכשלה",
+    "recurrence_delete_failed": "מחיקת ההוצאה הקבועה נכשלה",
+    "recurrence_update_failed": "עדכון ההוצאה הקבועה נכשל",
+    "notification_request_failed": "שגיאה בבקשת הרשאה להתראות",
+    "notification_subscribe_failed": "לא ניתן להירשם להתראות",
+    "expense_invalid_input": "יש לבדוק את פרטי ההוצאה ולנסות שוב.",
+    "expense_submission_failed": "אירעה שגיאה לא צפויה בשמירת ההוצאה.",
+    "expense_deletion_failed": "אירעה שגיאה לא צפויה במחיקת ההוצאה.",
+    "friend_deletion_failed": "מחיקת החבר/ה נכשלה",
+    "signin_failed": "ההתחברות נכשלה. כדאי לנסות שוב.",
+    "invite_email_failed": "שליחת אימייל ההזמנה נכשלה. יש לבדוק את הגדרות ה-SMTP."
+  },
+  "bank_transactions": {
+    "choose_bank_provider": "בחירת ספק בנקאי",
+    "select_bank_provider": "בחירת ספק בנקאי",
+    "search_bank": "חיפוש בנק",
+    "no_bank_providers_found": "לא נמצאו ספקים בנקאיים",
+    "to_bank": "לבנק",
+    "plaid": {
+      "bank_connected_successfully": "הבנק חובר בהצלחה",
+      "bank_connection_failed": "החיבור לבנק נכשל",
+      "bank_connection_cancelled": "החיבור לבנק בוטל"
+    }
   },
   "expense_details": {
-    "add_expense": "",
+    "add_expense": "הוספת הוצאה",
     "add_expense_details": {
-      "add_new_expense": "",
-      "amount_placeholder": "",
-      "description_placeholder": "",
-      "pick_a_date": "",
+      "add_new_expense": "הוספת הוצאה חדשה",
+      "amount_placeholder": "סכום",
+      "description_placeholder": "תיאור",
+      "pick_a_date": "בחירת תאריך",
       "select_user_or_group": {
-        "add_to_split_pro": "",
-        "note": "",
-        "only_one_group_time": "",
-        "send_invite": "",
-        "warning": ""
+        "add_to_split_pro": "הוספה להוצאה",
+        "note": "הזמנות באימייל מושבתות. עדיין אפשר להוסיף מישהו לפי כתובת אימייל בלי לשלוח הזמנה.",
+        "only_one_group_time": "אפשר לבחור רק קבוצה אחת בכל פעם",
+        "send_invite": "הוספה עם הזמנה באימייל",
+        "warning": "שני הכפתורים מוסיפים את האדם לטיוטת ההוצאה הזו. בסיום יש לשמור את ההוצאה. אפשרות ההזמנה שולחת קישור ל-SplitPro רק אם כתובת האימייל שלו עדיין לא אומתה, והיא לא מחברת אותו לחשבון.",
+        "empty_image_alt": "לא נמצאו משתמשים"
       },
       "split_type_section": {
-        "split_equally": "",
-        "split_unequally": "",
+        "direction": {
+          "no_money_flow": "אף אחד אחר לא חייב כלום",
+          "owes_payer": "{debtor} חייב/ת ל{payer}",
+          "owes_you": "{debtor} חייב/ת לך",
+          "you_owe": "את/ה חייב/ת ל{payer}"
+        },
+        "split_equally": "מחולק שווה בשווה",
+        "split_unequally": "מחולק באופן לא שווה",
         "types": {
           "adjustment": {
-            "remaining_to_split_equally": "",
-            "title": ""
+            "remaining_to_split_equally": "נותר לחלוקה שווה",
+            "title": "התאמה"
           },
           "equal": {
-            "per_person": "",
-            "title": ""
+            "per_person": "לאדם",
+            "title": "שווה"
           },
           "exact": {
-            "remaining": "",
-            "title": ""
+            "remaining": "נותר",
+            "title": "סכום מדויק"
           },
           "percentage": {
-            "remaining": "",
-            "title": ""
+            "remaining": "נותר",
+            "title": "אחוזים"
           },
           "share": {
-            "shares": "",
-            "title": "",
-            "total_shares": ""
+            "shares": "חלקים",
+            "title": "חלקים",
+            "total_shares": "סך החלקים"
           }
-        }
+        },
+        "split_equally_with_count": "מחולק שווה בשווה {count, plural, one {לאדם אחד} two {בין שני אנשים} other {בין # אנשים}}"
       },
-      "sponsor_us": "",
+      "sponsor_us": "תמיכה בפרויקט",
       "upload_file": {
         "messages": {
-          "upload_success": ""
+          "upload_success": "הקובץ הועלה בהצלחה"
         }
       },
       "user_input": {
-        "add_more_friends": "",
-        "cannot_change_group": "",
-        "remove_group": "",
-        "search_friends": ""
+        "add_more_friends": "חיפוש חברים, קבוצות או הוספת אימייל",
+        "cannot_change_group": "אי אפשר להחליף קבוצה בזמן עריכה",
+        "remove_group": "יש ללחוץ על מחיקה כדי להסיר את הקבוצה",
+        "search_friends": "חיפוש חברים, קבוצות או הוספת אימייל"
       }
     },
-    "already_added": "",
     "balance_list": {
-      "are_settled_up": "",
-      "is_settled_up": "",
-      "press_balance_info": ""
+      "press_balance_info": "לחיצה על יתרה מתחילה סגירת חשבון",
+      "settled": "{actor, select, you {החשבון שלך סגור} other {החשבון של {person} סגור}}",
+      "lent_amount": "{actor, select, you {הלווית <amount/>} other {<person/> הלווה <amount/>}}",
+      "owes_amount": "{actor, select, you {את/ה חייב/ת <amount/>} other {<person/> חייב/ת <amount/>}}"
     },
-    "bank_transactions": "",
-    "clear": "",
     "delete_expense_details": {
-      "text": "",
-      "title": ""
+      "text": "אי אפשר לבטל את הפעולה הזו. ההוצאה תימחק לצמיתות.",
+      "title": "בטוח?"
     },
     "multiple_transactions": {
-      "add_all": "",
-      "add_one_by_one": "",
-      "description": "",
-      "title": ""
+      "title": "הוספת כמה עסקאות",
+      "description": "בחרת כמה עסקאות. אפשר להוסיף את כולן יחד עם הגדרות החלוקה הנוכחיות, או לעבור עליהן אחת אחת ולהתאים את ההגדרות.",
+      "add_all": "הוספת הכול",
+      "add_one_by_one": "הוספה אחת אחת"
     },
-    "no_transactions_yet": "",
-    "pending": "",
-    "submit_all": "",
-    "title": "",
-    "title_mobile": ""
+    "title": "הוספת הוצאה",
+    "title_mobile": "הוספה",
+    "clear": "ניקוי",
+    "bank_transactions": "עסקאות בנק",
+    "submit_all": "שליחת הכול",
+    "pending": "ממתינה",
+    "no_transactions_yet": "אין עדיין עסקאות",
+    "already_added": "כבר נוספה",
+    "receipt": {
+      "title": "קבלה על ההוצאה",
+      "thumbnail_alt": "תמונה ממוזערת של הקבלה",
+      "image_alt": "קבלה על ההוצאה"
+    },
+    "empty_state_image_alt": "אין הוצאות"
   },
   "group_details": {
-    "add_members": "",
-    "copied": "",
+    "add_members": "הוספת חברים",
+    "copied": "הועתק",
     "create_group": {
-      "group_name_placeholder": "",
-      "title": ""
+      "group_name_placeholder": "שם הקבוצה",
+      "title": "יצירת קבוצה"
     },
     "group_info": {
-      "actions": "",
-      "archive_group": "",
+      "actions": "פעולות",
+      "archive_group": "העברת הקבוצה לארכיון",
+      "configure_default_split": "הגדרת חלוקת ברירת מחדל",
+      "default_split": "חלוקת ברירת מחדל",
+      "default_balance_currency": "מטבע ברירת מחדל ליתרות",
+      "edit_group": "עריכת הקבוצה",
       "archive_group_details": {
-        "can_archive": "",
-        "cant_archive": "",
-        "title": ""
+        "can_archive": "הקבוצה תועבר לארכיון ותוסתר מרשימת הקבוצות הראשית. אפשר יהיה לגשת אליה גם בהמשך.",
+        "cant_archive": "אי אפשר להעביר לארכיון קבוצה עם יתרות פתוחות. קודם יש לסגור את כל היתרות.",
+        "title": "להעביר את הקבוצה לארכיון?"
       },
-      "archived": "",
-      "delete_group": "",
+      "archived": "הועברה לארכיון",
+      "delete_group": "מחיקת הקבוצה",
       "delete_group_details": {
-        "can_delete": "",
-        "cant_delete": "",
-        "title": ""
+        "can_delete": "אי אפשר לבטל את הפעולה הזו",
+        "cant_delete": "אי אפשר למחוק את הקבוצה עד שכולם יסגרו את היתרות שלהם",
+        "title": "בטוח?"
       },
-      "group_created": "",
-      "leave_group": "",
+      "group_created": "הקבוצה נוצרה",
+      "leave_group": "יציאה מהקבוצה",
       "leave_group_details": {
-        "can_leave": "",
-        "cant_leave": "",
-        "title": ""
+        "can_leave": "אי אפשר לבטל את הפעולה הזו",
+        "cant_leave": "אי אפשר לצאת מהקבוצה עד שהיתרה הפתוחה שלך תיסגר",
+        "title": "בטוח?"
       },
-      "members": "",
-      "recalculate_balances": "",
+      "members": "חברים",
+      "recalculate_balances": "חישוב מחדש של היתרות",
       "recalculate_balances_details": {
-        "description": "",
-        "title": ""
+        "description": "אם היתרות לא תואמות להוצאות, אפשר לחשב אותן מחדש. החישוב עשוי להימשך זמן מה כשיש הרבה הוצאות. יתרות מחוץ לקבוצה לא יושפעו.",
+        "title": "בטוח?"
       },
       "remove_member_details": {
-        "can_remove": "",
-        "cant_remove": "",
-        "title": ""
+        "can_remove": "החבר/ה יוסר/תוסר מהקבוצה",
+        "cant_remove": "אי אפשר להסיר חבר/ה עד שהיתרה הפתוחה שלו/ה תיסגר",
+        "title": "בטוח?"
       },
-      "simplify_debts": "",
-      "title": ""
+      "simplify_debts": "פישוט חובות",
+      "title": "פרטי הקבוצה"
     },
     "group_statistics": {
-      "first_expense": "",
-      "title": "",
-      "total_expenses": ""
+      "first_expense": "הוצאה ראשונה",
+      "paid": "שילם/ה",
+      "per_person": "הוצאות לפי אדם",
+      "share": "חלק בעלויות",
+      "title": "סטטיסטיקות הקבוצה",
+      "total_expenses": "סך ההוצאות"
     },
     "messages": {
-      "balances_recalculated": "",
-      "group_archived": "",
-      "group_name_updated": ""
+      "default_split_cleared": "חלוקת ברירת המחדל נוקתה",
+      "default_split_updated": "חלוקת ברירת המחדל עודכנה",
+      "default_balance_currency_cleared": "מטבע ברירת המחדל ליתרות נוקה",
+      "default_balance_currency_updated": "מטבע ברירת המחדל ליתרות עודכן",
+      "balances_recalculated": "היתרות חושבו מחדש בהצלחה",
+      "group_archived": "הקבוצה הועברה לארכיון בהצלחה",
+      "group_name_updated": "פרטי הקבוצה עודכנו"
     },
     "no_members": {
-      "add_members": "",
+      "add_members": "הוספת חברים",
       "add_members_details": {
-        "add_to_split_pro": "",
-        "note": "",
-        "placeholder": "",
-        "send_invite": "",
-        "title": "",
-        "warning": ""
+        "add_to_split_pro": "הוספה לקבוצה",
+        "note": "הזמנות באימייל מושבתות. עדיין אפשר להוסיף מישהו לפי כתובת אימייל בלי לשלוח הזמנה.",
+        "placeholder": "שם או אימייל",
+        "send_invite": "הוספה עם הזמנה באימייל",
+        "title": "הוספת חברים",
+        "warning": "שני הכפתורים מוסיפים מיד לקבוצה את האדם ואת אנשי הקשר שנבחרו. „שמירה” מוסיפה רק את אנשי הקשר שנבחרו, לא את האימייל שהוקלד. אפשרות ההזמנה שולחת קישור ל-SplitPro רק אם כתובת האימייל עדיין לא אומתה, והיא לא מחברת אותו לחשבון."
       },
-      "invite_link": "",
-      "no_members": ""
+      "invite_link": "קישור הזמנה",
+      "no_members": "אין עדיין חברים בקבוצה."
     },
     "tabs": {
-      "balances": "",
-      "expenses": ""
+      "balances": "יתרות",
+      "expenses": "הוצאות"
     },
-    "title": ""
+    "title": "יתרות פתוחות בקבוצה"
   },
   "invite_message": {
-    "in_splitpro": "",
-    "join_to": "",
-    "text": ""
+    "in_splitpro": "ב-SplitPro",
+    "join_to": "הצטרפות לקבוצה",
+    "text": "הצטרפו לקבוצה כדי להוסיף ולנהל הוצאות ולעקוב אחרי היתרות שלכם"
   },
   "meta": {
-    "application_name": "",
-    "description": "",
-    "title": ""
+    "application_name": "SplitPro",
+    "description": "חלוקת הוצאות עם חברים, בחינם",
+    "title": "SplitPro: חלוקת הוצאות עם חברים, בחינם"
+  },
+  "balances": {
+    "user_preferences": {
+      "title": "העדפות"
+    },
+    "default_split": {
+      "cleared": "חלוקת ברירת המחדל נוקתה",
+      "configure": "חלוקת ברירת מחדל",
+      "updated": "חלוקת ברירת המחדל עודכנה"
+    }
   },
   "navigation": {
-    "account": "",
-    "activity": "",
-    "add": "",
-    "add_expense": "",
-    "balances": "",
-    "groups": "",
-    "recurring": ""
+    "account": "חשבון",
+    "activity": "פעילות",
+    "add": "הוספה",
+    "add_expense": "הוספת הוצאה",
+    "recurring": "קבועות",
+    "balances": "יתרות",
+    "groups": "קבוצות"
   },
   "recurrence": {
-    "cron_expression": "",
-    "days_of_month": "",
-    "days_of_week": "",
-    "delete_description": "",
-    "delete_title": "",
-    "derived_delete_warning": "",
-    "derived_edit_warning": "",
-    "description": "",
-    "edit_confirmation_title": "",
-    "edit_description": "",
-    "edit_title": "",
-    "empty": "",
-    "expense_for_the_amount_of": "",
-    "last_day": "",
-    "months": "",
-    "never": "",
-    "recurring": "",
+    "title": "חזרה",
+    "description": "הגדרת חזרה אוטומטית להוצאה הזו.",
+    "cron_expression": "ביטוי cron",
+    "time_of_day": "שעה ביום",
+    "days_of_week": "ימים בשבוע",
+    "days_of_month": "ימים בחודש",
+    "months": "חודשים",
+    "last_day": "היום האחרון",
+    "never": "לא הוגדר תזמון",
+    "empty": "אין עדיין הוצאות קבועות",
+    "recurring": "קבועה",
+    "expense_for_the_amount_of": "הוצאה {name} על סך {amount} {currency}",
+    "delete_title": "מחיקת החזרה",
+    "delete_description": "לא ייווצרו יותר הוצאות חדשות. הוצאות קיימות שנוצרו מהחזרה הזו לא יימחקו.",
+    "edit_title": "עריכת החזרה",
+    "edit_description": "התזמון של ההוצאות העתידיות ישתנה. הוצאות קיימות לא ישתנו.",
     "schedule_type": {
-      "custom": "",
-      "day": "",
-      "month": "",
-      "never": "",
-      "week": "",
-      "year": ""
+      "never": "אף פעם",
+      "custom": "מותאם אישית",
+      "day": "יומית",
+      "month": "חודשית",
+      "week": "שבועית",
+      "year": "שנתית"
     },
-    "template_delete_warning": "",
-    "template_edit_warning": "",
-    "time_of_day": "",
-    "title": "",
-    "view_recurring_page": ""
+    "edit_confirmation_title": "עריכת הוצאה קבועה",
+    "template_edit_warning": "זו תבנית של הוצאה קבועה. השינויים יחולו על כל ההוצאות הקבועות שייווצרו בעתיד.",
+    "derived_edit_warning": "ההוצאה הזו היא חלק מסדרה קבועה. השינויים יחולו רק על ההוצאה הזו.",
+    "template_delete_warning": "זו תבנית של הוצאה קבועה. מחיקה שלה תעצור את כל ההוצאות הקבועות העתידיות.",
+    "derived_delete_warning": "ההוצאה הזו היא חלק מסדרה קבועה. רק ההוצאה הזו תימחק, וההוצאות הקבועות העתידיות ימשיכו להיווצר.",
+    "view_recurring_page": "לדף ההוצאות הקבועות",
+    "toggle_options": "הצגה או הסתרה של אפשרויות ההוצאה הקבועה",
+    "execution_time_loading": "טוען את מועד ההפעלה…",
+    "execution_time_unavailable": "מועד ההפעלה אינו זמין.",
+    "next_local_run": "ההפעלה הבאה: {date} ({timeZone}, אזור הזמן שלך).",
+    "instance_schedule": "תזמון: {schedule} ({timeZone})."
   },
   "ui": {
-    "added_by": "",
-    "and": "",
-    "balance": "",
-    "balances": "",
-    "delete": "",
-    "deleted_by": "",
-    "edited_by": "",
+    "and": "וגם",
+    "delete": "מחיקה",
     "expense": {
-      "for": "",
-      "from": "",
-      "paid_by": "",
-      "received_by": "",
-      "to": "",
-      "user": {
-        "deleted": "",
-        "get": "",
-        "lent": "",
-        "owe": "",
-        "paid": "",
-        "pay": "",
-        "received": ""
+      "from": "מ",
+      "paid_by": "שולם על ידי",
+      "received_by": "התקבל על ידי",
+      "to": "אל",
+      "payer": {
+        "current_user": "את/ה"
       },
-      "you": {
-        "deleted": "",
-        "get": "",
-        "lent": "",
-        "owe": "",
-        "paid": "",
-        "pay": "",
-        "received": ""
-      }
+      "recipient": {
+        "current_user": "את/ה"
+      },
+      "statements": {
+        "you_lent": "הלווית",
+        "you_owe": "את/ה חייב/ת",
+        "you_lent_amount": "הלווית {amount}",
+        "you_owe_amount": "את/ה חייב/ת {amount}",
+        "you_pay_user": "את/ה משלם/ת ל{user}",
+        "user_pays_you": "{user} משלם/ת לך",
+        "user_pays_user": "{payer} משלם/ת ל{receiver}"
+      },
+      "fetch_rate_date": "תאריך שער החליפין"
     },
-    "expense_details": "",
-    "in_group": "",
-    "no_activity": "",
-    "not_involved": "",
-    "not_set": "לא מוגדר",
-    "on": "",
-    "or": "",
-    "outstanding_balances": "",
-    "select_balance": "",
-    "settle_up_name": "",
-    "settled_up": "",
-    "settlement": "",
-    "share_text": "",
-    "show_all_currencies": "",
-    "today": "",
-    "total_balance": ""
+    "expense_details": "פרטי ההוצאה",
+    "no_activity": "אין עדיין פעילות",
+    "not_involved": "לא משתתף/ת",
+    "not_set": "לא הוגדר",
+    "on": "ב-",
+    "or": "או",
+    "outstanding_balances": "יתרות פתוחות",
+    "group_people_list_empty": {
+      "no_contacts": "אין אנשי קשר שמורים להצגה",
+      "no_matches": "אין אנשי קשר זמינים שתואמים לחיפוש",
+      "all_added": "כל אנשי הקשר השמורים שלך כבר בקבוצה הזו"
+    },
+    "people_list_load_error": "לא ניתן היה לטעון את אנשי הקשר. כדאי לנסות שוב.",
+    "people_list_empty": {
+      "no_contacts": "אין אנשי קשר או קבוצות שמורים להצגה",
+      "no_matches": "אין אנשי קשר או קבוצות זמינים שתואמים לחיפוש",
+      "all_added": "כל אנשי הקשר השמורים שלך כבר בקבוצה הזו"
+    },
+    "total_balance": "יתרה כוללת",
+    "select_currency": "בחירת מטבע",
+    "select_balance": "בחירת יתרה",
+    "settle_up_name": "סגירת חשבון",
+    "settled_up": "החשבון סגור",
+    "settlement": "סגירת חשבון",
+    "share_text": "בואו נחלק הוצאות ב-SplitPro",
+    "show_all_currencies": "הצגת כל המטבעות",
+    "today": "היום",
+    "in_group": "בקבוצה",
+    "transfer": "{senderRole, select, you {את/ה משלם/ת ל{receiver}} other {{receiverRole, select, you {{sender} משלם/ת לך} other {{sender} משלם/ת ל{receiver}}}}}",
+    "invitation": {
+      "send_email": "שליחת אימייל הזמנה",
+      "adding": "מוסיף…",
+      "email_help": "לכתובת האימייל שהוזנה נשלח קישור ל-SplitPro רק אם היא עדיין לא אומתה. זה לא מחבר את האדם לחשבון.",
+      "no_email_help": "לא יישלח אימייל הזמנה. מי שעדיין לא נרשם יוכל להתחבר בהמשך עם כתובת האימייל הזו.",
+      "disabled_help": "אימיילים של הזמנה מושבתים בשרת הזה. עדיין אפשר להוסיף מישהו לפי כתובת אימייל.",
+      "draft_help": "הוספת משתתף לא שומרת את ההוצאה. בעריכה יש לשמור גם את ההוצאה.",
+      "group_partial_success": "נוסף/ה לקבוצה, אבל לא ניתן היה לשלוח את אימייל ההזמנה.",
+      "expense_partial_success": "נוסף/ה לטיוטת ההוצאה, אבל לא ניתן היה לשלוח את אימייל ההזמנה."
+    }
+  },
+  "friend": {
+    "delete_confirmation": {
+      "title": "בטוח?",
+      "description": "להמשיך בכל זאת?",
+      "outstanding_balance": "אי אפשר להסיר חבר/ה עם יתרות פתוחות. קודם יש לסגור את החשבון."
+    }
+  },
+  "activity": {
+    "you_paid_for_expense": "שילמת {amount} עבור {expense}",
+    "you_received_for_expense": "קיבלת {amount} עבור {expense}",
+    "user_paid_for_expense": "{user} שילם/ה {amount} עבור {expense}",
+    "user_received_for_expense": "{user} קיבל/ה {amount} עבור {expense}",
+    "user_deleted_expense": "{actor, select, you {מחקת את {expense}} other {{user} מחק/ה את {expense}}}",
+    "you_paid_amount": "שילמת {amount}",
+    "you_received_amount": "קיבלת {amount}"
+  },
+  "balance_summary": {
+    "friend_owes_you": "{friend} חייב/ת לך {amount}",
+    "you_owe_friend": "את/ה חייב/ת ל{friend} {amount}",
+    "more": "{count, plural, one {ועוד יתרה אחת} two {ועוד שתי יתרות} other {ועוד # יתרות}}",
+    "member_count": "{count, plural, =1 {חבר/ה אחד/ת} two {שני חברים} other {# חברים}}"
+  },
+  "balance_list": {
+    "pays": "{payerRole, select, you {את/ה משלם/ת {amount} ל{receiver}} other {{payer} משלם/ת {amount} {receiverRole, select, you {לך} other {ל{receiver}}}}}",
+    "gets": "{receiverRole, select, you {את/ה מקבל/ת {amount} מ{payer}} other {{receiver} מקבל/ת {amount} {payerRole, select, you {ממך} other {מ{payer}}}}}"
+  },
+  "expense_participant": {
+    "gets": "{actor, select, you {<person/> מקבל/ת <amount/>} other {<person/> מקבל/ת <amount/>}}",
+    "owes": "{actor, select, you {<person/> חייב/ת <amount/>} other {<person/> חייב/ת <amount/>}}",
+    "paid": "<person/> שילם/ה <amount/>",
+    "received": "<person/> קיבל/ה <amount/>"
+  },
+  "expense_metadata": {
+    "edited_by": "{actor, select, you {נערך על ידך ב-{date}} other {נערך על ידי {user} ב-{date}}}",
+    "deleted_by": "{actor, select, you {נמחק על ידך ב-{date}} other {נמחק על ידי {user} ב-{date}}}",
+    "added_by": "{actor, select, you {נוסף על ידך ב-{date}} other {נוסף על ידי {user} ב-{date}}}"
+  },
+  "expense_list": {
+    "upcoming_expenses": "הוצאות עתידיות",
+    "future_expense": "הוצאה עתידית — עדיין לא נכללת ביתרות",
+    "user_paid": "{actor, select, you {שילמת {amount}} other {{user} שילם/ה {amount}}}",
+    "user_received": "{actor, select, you {קיבלת {amount}} other {{user} קיבל/ה {amount}}}",
+    "settlement": "{payerRole, select, you {שילמת {amount} ל{receiver}} other {{receiverRole, select, you {{payer} שילם/ה לך {amount}} other {{payer} שילם/ה {amount} ל{receiver}}}}}",
+    "conversion_for_users": "המרת מטבע עבור {payerRole, select, you {עצמך} other {{payer}}} ו{receiverRole, select, you {עצמך} other {{receiver}}}"
+  },
+  "notifications": {
+    "enable_title": "הפעלת התראות",
+    "enable_description": "לא לפספס שום דבר חשוב. אפשר להירשם לקבלת התראות כשמוסיפים או מעדכנים הוצאות.",
+    "permission_granted": "מעכשיו יישלחו אליך התראות",
+    "subscribe": "הרשמה"
+  },
+  "pagination": {
+    "load_more": "טעינת עוד",
+    "loading": "טוען הוצאות",
+    "retry": "לנסות שוב",
+    "error": "לא ניתן היה לטעון את ההוצאות. כדאי לנסות שוב."
+  },
+  "comments": {
+    "title": "תגובות",
+    "initial_label": "הוספת הערה (לא חובה)",
+    "initial_placeholder": "פרטים נוספים על ההוצאה…",
+    "add": "הוספת תגובה",
+    "placeholder": "כתיבת תגובה…",
+    "post": "פרסום התגובה",
+    "edit": "עריכה",
+    "delete": "מחיקה",
+    "edit_label": "עריכת התגובה",
+    "delete_confirm": "למחוק את התגובה?",
+    "error": "לא ניתן היה לשמור את התגובה"
   }
 }

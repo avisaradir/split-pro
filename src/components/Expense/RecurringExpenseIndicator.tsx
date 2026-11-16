@@ -10,7 +10,7 @@ export const RecurringExpenseIndicator = () => {
       <span className="sr-only">{t('recurrence.recurring')}</span>
       <span
         aria-hidden="true"
-        className="bg-popover text-popover-foreground pointer-events-none absolute top-full left-0 z-10 mt-1 hidden rounded-md border px-2 py-1 text-xs whitespace-nowrap shadow-md group-focus-visible/expense:block"
+        className="bg-popover text-popover-foreground pointer-events-none absolute start-0 top-full z-10 mt-1 hidden rounded-md border px-2 py-1 text-xs whitespace-nowrap shadow-md group-focus-visible/expense:block"
       >
         {t('recurrence.recurring')}
       </span>

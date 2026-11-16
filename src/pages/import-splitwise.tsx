@@ -135,13 +135,13 @@ const ImportSpliwisePage: NextPageWithUser = () => {
         <div className="mt-4 flex items-center gap-4">
           <label htmlFor="splitwise-json" className="w-full cursor-pointer rounded border">
             <div className="flex cursor-pointer px-3 py-[6px]">
-              <div className="flex items-center border-r pr-4">
-                <PaperClipIcon className="mr-2 h-4 w-4" />{' '}
+              <div className="flex items-center border-e pe-4">
+                <PaperClipIcon className="me-2 h-4 w-4" />{' '}
                 <span className="hidden text-sm md:block">
                   {t('account.import_from_splitwise_details.choose_file')}
                 </span>
               </div>
-              <div className="text-muted-foreground pl-4">
+              <div className="text-muted-foreground ps-4">
                 {uploadedFile
                   ? uploadedFile.name
                   : t('account.import_from_splitwise_details.no_file_chosen')}
@@ -247,7 +247,7 @@ const ImportSpliwisePage: NextPageWithUser = () => {
             {t('account.import_from_splitwise_details.follow_to_export_splitwise_data')}
             <Link href="https://export-splitwise.vercel.app/" target="_blank">
               <Button>
-                <DownloadCloud className="mr-2" />
+                <DownloadCloud className="me-2" />
                 {t('account.import_from_splitwise_details.export_splitwise_data_button')}
               </Button>
             </Link>

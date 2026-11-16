@@ -21,7 +21,10 @@ export const AccountButton: React.FC<React.PropsWithChildren<ButtonProps> & { hr
       {...buttonProps}
     >
       <div className="flex min-w-0 items-center gap-3 text-start whitespace-normal">{children}</div>
-      <ChevronRight className="text-tertiary-foreground size-5 shrink-0" aria-hidden="true" />
+      <ChevronRight
+        className="text-tertiary-foreground size-5 shrink-0 rtl:-scale-x-100"
+        aria-hidden="true"
+      />
     </Button>
   </WithLink>
 );

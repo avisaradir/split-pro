@@ -39,11 +39,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({
       <div
         vaul-drawer-wrapper=""
         className={clsx(
-          'bg-background mx-auto flex h-full w-full flex-col lg:ml-[max(200px,calc((100%_-_48rem)/2))] lg:max-w-3xl lg:flex-row',
+          'bg-background mx-auto flex h-full w-full flex-col lg:ms-[max(200px,calc((100%_-_48rem)/2))] lg:max-w-3xl lg:flex-row',
           hideAppBar ? '' : '',
         )}
       >
-        <nav className="-ml-[200px] hidden w-[200px] shrink-0 px-3 py-4 lg:flex lg:flex-col lg:gap-1">
+        <nav className="-ms-[200px] hidden w-[200px] shrink-0 px-3 py-4 lg:flex lg:flex-col lg:gap-1">
           <Link href="/balances" className="mb-6 flex min-h-11 items-center gap-2 px-3">
             <span className="text-xl font-bold">{t?.('meta.application_name') ?? 'SplitPro'}</span>
           </Link>
@@ -81,7 +81,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         <div className="w-full overflow-auto pt-[env(safe-area-inset-top)] lg:px-6" id="mainlayout">
           {title ? (
             <div className="flex min-h-11 items-center justify-between gap-2 px-4 pt-3 pb-2">
-              <h1 className="text-foreground min-w-0 truncate text-3xl font-bold tracking-tight">
+              <h1 className="text-foreground user-text min-w-0 truncate text-3xl font-bold tracking-tight">
                 {title}
               </h1>
               {actions}

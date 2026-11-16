@@ -382,7 +382,7 @@ export const AddOrEditExpensePage: React.FC<{
                       variant="ghost"
                       className="text-primary h-8 max-w-full min-w-0 justify-start px-1.5 py-0 text-base sm:max-w-none"
                     >
-                      <span className="max-w-full truncate">
+                      <span className="user-text max-w-full truncate">
                         {paidBy?.id === currentUser?.id
                           ? t(`ui.expense.${isNegative ? 'recipient' : 'payer'}.current_user`)
                           : displayName(paidBy)}

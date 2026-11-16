@@ -62,7 +62,7 @@ export const GeneralPicker: React.FC<{
               onSelect={onSelectAndClose}
               className="flex cursor-pointer items-center"
             >
-              <Check className={cn('mr-2 h-4 w-4', selected(item) ? 'opacity-100' : 'opacity-0')} />
+              <Check className={cn('me-2 h-4 w-4', selected(item) ? 'opacity-100' : 'opacity-0')} />
               <div className="flex gap-2">{render(item)}</div>
             </CommandItem>
           ))}

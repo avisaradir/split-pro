@@ -52,7 +52,7 @@ export const BankAccountSelect = ({
             <CommandItem key={framework.id} value={framework.id} onSelect={onSelect}>
               <Check
                 className={cn(
-                  'mr-2 h-4 w-4',
+                  'me-2 h-4 w-4',
                   framework.id === userQuery.data?.bankingId ? 'opacity-100' : 'opacity-0',
                 )}
               />

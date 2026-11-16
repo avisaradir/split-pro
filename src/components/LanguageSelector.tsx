@@ -52,19 +52,19 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
           <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
 
           {/* Dropdown */}
-          <div className="bg-popover text-popover-foreground absolute top-full right-0 z-20 mt-1 min-w-[160px] overflow-hidden rounded-xl shadow-lg">
+          <div className="bg-popover text-popover-foreground absolute end-0 top-full z-20 mt-1 min-w-[160px] overflow-hidden rounded-xl shadow-lg">
             <div className="py-1">
               {supportedLanguages.map((language) => (
                 <button
                   key={language.code}
                   onClick={() => handleLanguageChange(language.code)}
                   aria-current={i18n.language === language.code ? 'true' : undefined}
-                  className={`hover:bg-muted flex min-h-11 w-full items-center justify-between px-4 text-left text-base ${
+                  className={`hover:bg-muted flex min-h-11 w-full items-center justify-between px-4 text-start text-base ${
                     i18n.language === language.code ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {language.name}
-                  {i18n.language === language.code && <span className="text-primary ml-2">✓</span>}
+                  {i18n.language === language.code && <span className="text-primary ms-2">✓</span>}
                 </button>
               ))}
             </div>

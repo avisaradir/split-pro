@@ -65,7 +65,7 @@ const PayerRow = ({ p, isPaying }: { p: Participant; isPaying: boolean }) => {
     <AppDrawerClose className="flex items-center justify-between px-2" onClick={onClick}>
       <div className="flex min-w-0 items-center gap-1">
         <EntityAvatar entity={p} size={30} />
-        <p className="ml-4 truncate">{displayName(p, currentUser?.id)}</p>
+        <p className="user-text ms-4 truncate">{displayName(p, currentUser?.id)}</p>
       </div>
       {isPaying ? <Check className="text-primary h-6 w-6" /> : null}
     </AppDrawerClose>
@@ -408,7 +408,7 @@ const ParticipantRow = ({
           <CurrencyInput
             strValue={shareStr}
             currency={currency}
-            className="ml-2 text-right"
+            className="ms-2 text-end"
             onValueChange={onCurrencyInputValueChange}
           />
         </div>
@@ -419,7 +419,7 @@ const ParticipantRow = ({
             type="number"
             defaultValue={share ? fmtShareText(share) : ''}
             inputMode="decimal"
-            className="ml-2 w-20 text-lg"
+            className="ms-2 w-20 text-lg"
             placeholder="0"
             min={0}
             step={step ?? 0.01}
@@ -449,7 +449,7 @@ export const UserAndAmount: React.FC<{ user: Participant; currency: CurrencyCode
     <div className="flex h-11 min-w-0 flex-1 items-center gap-2">
       <EntityAvatar entity={user} size={30} />
       <div className="flex min-w-0 flex-col">
-        <p className="truncate">{displayName(user, currentUser?.id)}</p>
+        <p className="user-text truncate">{displayName(user, currentUser?.id)}</p>
         <p
           className={cn(
             canSplitScreenClosed || 'hidden',

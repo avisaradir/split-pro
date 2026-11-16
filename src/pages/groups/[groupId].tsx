@@ -172,12 +172,14 @@ const BalancePage: NextPageWithUser<{
             <Button
               variant="ghost"
               onClick={() => router.replace(`/groups`)}
-              className="text-primary -ml-3 shrink-0"
+              className="text-primary -ms-3 shrink-0"
               aria-label={t('actions.back')}
             >
-              <ChevronLeft className="size-7" />
+              <ChevronLeft className="size-7 rtl:-scale-x-100" />
             </Button>
-            <p className="truncate text-lg font-semibold">{groupDetailQuery.data?.name}</p>
+            <p className="user-text truncate text-lg font-semibold">
+              {groupDetailQuery.data?.name}
+            </p>
           </div>
         }
         actions={
@@ -234,7 +236,7 @@ const BalancePage: NextPageWithUser<{
                     {groupDetailQuery.data?.name ?? ''}
                   </div>
                   <UpdateName
-                    className="mr-2 size-5"
+                    className="me-2 size-5"
                     defaultName={groupDetailQuery.data?.name ?? ''}
                     defaultImage={groupDetailQuery.data?.image ?? null}
                     onNameSubmit={async (values) => {
@@ -292,9 +294,9 @@ const BalancePage: NextPageWithUser<{
                             >
                               <Button
                                 variant="ghost"
-                                className="text-destructive hover:text-destructive justify-start p-0 text-left hover:opacity-90"
+                                className="text-destructive hover:text-destructive justify-start p-0 text-start hover:opacity-90"
                               >
-                                <X className="mr-2 h-5 w-5" />
+                                <X className="me-2 h-5 w-5" />
                               </Button>
                             </SimpleConfirmationDialog>
                           );
@@ -410,7 +412,7 @@ const BalancePage: NextPageWithUser<{
                 <div className="child:h-7 mt-2 flex flex-col gap-4">
                   <Label className="flex cursor-pointer items-center justify-between">
                     <p className="flex items-center">
-                      <Merge className="mr-2 size-4" />{' '}
+                      <Merge className="me-2 size-4" />{' '}
                       {t('group_details.group_info.simplify_debts')}
                     </p>
                     <Switch
@@ -434,7 +436,7 @@ const BalancePage: NextPageWithUser<{
                   </Label>
                   <Label className="flex cursor-pointer items-center justify-between">
                     <p className="flex items-center">
-                      <Archive className="mr-2 size-4" />{' '}
+                      <Archive className="me-2 size-4" />{' '}
                       {t('group_details.group_info.archive_group')}
                     </p>
                     <Switch
@@ -474,9 +476,9 @@ const BalancePage: NextPageWithUser<{
                     >
                       <Button
                         variant="ghost"
-                        className="text-destructive hover:text-destructive justify-start p-0 text-left hover:opacity-90"
+                        className="text-destructive hover:text-destructive justify-start p-0 text-start hover:opacity-90"
                       >
-                        <Trash2 className="mr-2 size-4" />{' '}
+                        <Trash2 className="me-2 size-4" />{' '}
                         {t('group_details.group_info.delete_group')}
                       </Button>
                     </SimpleConfirmationDialog>
@@ -497,9 +499,9 @@ const BalancePage: NextPageWithUser<{
                     >
                       <Button
                         variant="ghost"
-                        className="text-destructive hover:text-destructive justify-start p-0 text-left hover:opacity-90"
+                        className="text-destructive hover:text-destructive justify-start p-0 text-start hover:opacity-90"
                       >
-                        <DoorOpen className="mr-2 h-5 w-5" />{' '}
+                        <DoorOpen className="me-2 h-5 w-5" />{' '}
                         {t('group_details.group_info.leave_group')}
                       </Button>
                     </SimpleConfirmationDialog>
@@ -514,13 +516,15 @@ const BalancePage: NextPageWithUser<{
             <Button
               variant="ghost"
               onClick={() => router.replace(`/groups`)}
-              className="text-primary -ml-3 shrink-0"
+              className="text-primary -ms-3 shrink-0"
               aria-label={t('actions.back')}
             >
-              <ChevronLeft className="size-7" />
+              <ChevronLeft className="size-7 rtl:-scale-x-100" />
             </Button>
             <EntityAvatar entity={groupDetailQuery.data} size={30} />
-            <p className="truncate text-lg font-semibold">{groupDetailQuery.data?.name}</p>
+            <p className="user-text truncate text-lg font-semibold">
+              {groupDetailQuery.data?.name}
+            </p>
           </div>
         }
         loading={groupDetailQuery.isPending}
