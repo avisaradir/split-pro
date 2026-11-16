@@ -89,7 +89,7 @@ const GroupMemberTotals: React.FC<GroupMemberTotalsProps> = ({ groupId, defaultC
           <div key={user.id} className="flex items-center gap-3">
             <EntityAvatar entity={user} />
             <div className="min-w-0">
-              <p className="truncate">{displayName(user)}</p>
+              <p className="user-text truncate">{displayName(user)}</p>
               <div className="text-muted-foreground flex flex-wrap gap-1 text-sm">
                 <span>{t('group_details.group_statistics.paid')}</span>
                 {renderAmounts(paidAmounts(totals))}

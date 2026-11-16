@@ -276,7 +276,7 @@ const AmountDisplay: React.FC<{
       {withText && (
         <div
           className={cn(
-            'text-right text-xs',
+            'text-end text-xs',
             isPositive ? 'text-positive' : 'text-negative',
             className,
           )}

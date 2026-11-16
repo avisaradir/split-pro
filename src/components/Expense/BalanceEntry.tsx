@@ -29,9 +29,9 @@ export const BalanceEntry: React.FC<{
     >
       <div className="flex min-w-0 items-center gap-3">
         <EntityAvatar entity={entity} size={40} />
-        <div className="text-foreground truncate">{displayName(entity)}</div>
+        <div className="text-foreground user-text truncate">{displayName(entity)}</div>
       </div>
-      <div className="text-right" onClick={stopPropagation}>
+      <div className="text-end" onClick={stopPropagation}>
         <ConvertibleBalance withText balances={balances} entityId={id} />
       </div>
     </Link>

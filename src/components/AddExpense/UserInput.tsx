@@ -68,7 +68,7 @@ export const UserInput: React.FC<{
   return (
     <div className="mt-4 flex gap-2 overflow-x-auto border-b pb-4 sm:flex-wrap">
       {group ? (
-        <div className="bg-muted flex items-center gap-2 rounded-full p-0.5 pr-4">
+        <div className="bg-muted flex items-center gap-2 rounded-full p-0.5 pe-4">
           <EntityAvatar entity={group} size={30} />
           <p className="text-xs">{group.name}</p>
         </div>
@@ -77,10 +77,10 @@ export const UserInput: React.FC<{
           p.id !== currentUser?.id ? (
             <div
               key={p.id}
-              className="bg-muted flex max-w-40 items-center gap-2 rounded-full p-0.5 pr-4"
+              className="bg-muted flex max-w-40 items-center gap-2 rounded-full p-0.5 pe-4"
             >
               <EntityAvatar entity={p} size={30} />
-              <p className="truncate text-xs">{displayName(p)}</p>
+              <p className="user-text truncate text-xs">{displayName(p)}</p>
             </div>
           ) : null,
         )

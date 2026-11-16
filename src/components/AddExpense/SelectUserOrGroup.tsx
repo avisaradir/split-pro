@@ -178,7 +178,7 @@ export const SelectUserOrGroup: React.FC<{
           disabled={!isEmail.success || adding}
           onClick={() => void onAddEmailClick()}
         >
-          <UserPlusIcon className="mr-2 size-4" />
+          <UserPlusIcon className="me-2 size-4" />
           {adding
             ? t('ui.invitation.adding')
             : t('expense_details.add_expense_details.select_user_or_group.add_to_split_pro')}
@@ -226,7 +226,7 @@ export const SelectUserOrGroup: React.FC<{
               >
                 <div className="flex min-w-0 items-center gap-4">
                   <EntityAvatar entity={f} size={35} />
-                  <div className="truncate">{displayName(f)}</div>
+                  <div className="user-text truncate">{displayName(f)}</div>
                 </div>
                 {participants.some((p) => p.id === f.id) ? (
                   <div>
@@ -250,7 +250,7 @@ export const SelectUserOrGroup: React.FC<{
               >
                 <div className="flex min-w-0 items-center gap-4">
                   <EntityAvatar entity={f} size={35} />
-                  <div className="truncate">{displayName(f)}</div>
+                  <div className="user-text truncate">{displayName(f)}</div>
                 </div>
                 {participants.some((p) => p.id === f.id) ? (
                   <div>
@@ -276,7 +276,7 @@ export const SelectUserOrGroup: React.FC<{
                 >
                   <div className="flex min-w-0 items-center gap-4">
                     <EntityAvatar entity={g.group} size={35} />
-                    <p className="truncate">{g.group.name}</p>
+                    <p className="user-text truncate">{g.group.name}</p>
                   </div>
                 </button>
               ))}

@@ -174,7 +174,7 @@ const SettleUpWithBalances: React.FC<{
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-5">
               <EntityAvatar entity={isCurrentUserPaying ? currentUser : friend} />
-              <ArrowRightIcon className="text-muted-foreground h-6 w-6" />
+              <ArrowRightIcon className="text-muted-foreground h-6 w-6 rtl:-scale-x-100" />
               <EntityAvatar entity={isCurrentUserPaying ? friend : currentUser} />
             </div>
             <p className="text-muted-foreground mt-2 text-center text-sm">

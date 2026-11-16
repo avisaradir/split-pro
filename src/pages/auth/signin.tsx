@@ -243,7 +243,7 @@ const Home: NextPage<{
                     ))}
                   {providers && 2 === providers.length && (
                     <div className="mt-6 flex w-[300px] items-center justify-between gap-2">
-                      <p className="bg-background text-muted-foreground z-10 ml-[150px] -translate-x-1/2 px-4 text-sm">
+                      <p className="bg-background text-muted-foreground z-10 mx-auto px-4 text-sm">
                         {t('ui.or')}
                       </p>
                       <div className="bg-separator absolute h-px w-[300px]" />

@@ -66,7 +66,7 @@ const ExpensesPage: NextPageWithUser = ({ user }) => {
   const renderEditButton = () => {
     const editButton = (
       <Button variant="ghost">
-        <PencilIcon className="mr-1 h-4 w-4" />
+        <PencilIcon className="me-1 h-4 w-4" />
       </Button>
     );
 
@@ -96,7 +96,7 @@ const ExpensesPage: NextPageWithUser = ({ user }) => {
         title={
           <div className="flex min-w-0 items-center gap-1">
             <Link href={`/balances/${friendId}`}>
-              <ChevronLeftIcon className="mr-1 h-6 w-6" />
+              <ChevronLeftIcon className="me-1 h-6 w-6 rtl:-scale-x-100" />
             </Link>
             <p className="truncate text-lg font-semibold">{t('ui.expense_details')}</p>
           </div>

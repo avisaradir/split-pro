@@ -77,12 +77,14 @@ const FriendPage: NextPageWithUser = ({ user }) => {
           <div className="flex min-w-0 items-center gap-1">
             <Link
               href="/balances"
-              className="text-primary -ml-3 flex size-11 shrink-0 items-center justify-center"
+              className="text-primary -ms-3 flex size-11 shrink-0 items-center justify-center"
               aria-label={t('actions.back')}
             >
-              <ChevronLeftIcon className="size-7" />
+              <ChevronLeftIcon className="size-7 rtl:-scale-x-100" />
             </Link>
-            <p className="truncate text-lg font-semibold">{displayName(friendQuery.data)}</p>
+            <p className="user-text truncate text-lg font-semibold">
+              {displayName(friendQuery.data)}
+            </p>
           </div>
         }
         actions={
@@ -166,10 +168,10 @@ const FriendPage: NextPageWithUser = ({ user }) => {
             <div className="flex items-center gap-2">
               <Link
                 href="/balances"
-                className="text-primary -ml-3 flex size-11 shrink-0 items-center justify-center"
+                className="text-primary -ms-3 flex size-11 shrink-0 items-center justify-center"
                 aria-label={t('actions.back')}
               >
-                <ChevronLeftIcon className="size-7" />
+                <ChevronLeftIcon className="size-7 rtl:-scale-x-100" />
               </Link>
               <EntityAvatar entity={friendQuery.data} size={25} />
               {displayName(friendQuery.data)}

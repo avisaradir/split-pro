@@ -6,6 +6,7 @@ import { appWithTranslation, useTranslation } from 'next-i18next';
 import { type AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { Direction } from 'radix-ui';
 import { useEffect, useState } from 'react';
 import { Toaster } from 'sonner';
 import { LoadingSpinner } from '~/components/ui/spinner';
@@ -14,6 +15,7 @@ import { CurrencyHelpersProvider } from '~/contexts/CurrencyHelpersContext';
 import { BalanceDateProvider } from '~/contexts/BalanceDateContext';
 import { useAppStore } from '~/store/appStore';
 import { api } from '~/utils/api';
+import { getLanguageDirection } from '~/utils/i18n/client';
 
 import 'react-easy-crop/react-easy-crop.css';
 import '~/styles/globals.css';
@@ -25,6 +27,14 @@ type AppPropsWithAuth = AppProps<{ session: Session | null }> & { Component: Pag
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppPropsWithAuth) => {
   const { t, ready } = useTranslation();
+  const { locale } = useRouter();
+  const dir = getLanguageDirection(locale);
+
+  // _document only renders on the server; keep <html> in sync on client-side locale switches.
+  useEffect(() => {
+    document.documentElement.dir = dir;
+    document.documentElement.lang = !locale || 'default' === locale ? 'en' : locale;
+  }, [dir, locale]);
 
   if (!ready) {
     return (
@@ -83,18 +93,20 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppPropsWith
         <meta property="og:image" content={`${baseUrl}/og_banner.png`} />
       </Head>
       <SerwistProvider swUrl="/serwist/sw.js">
-        <SessionProvider session={session}>
-          <CurrencyHelpersProvider>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <Toaster toastOptions={toastOptions} />
-              {Component.auth ? (
-                <Auth pageProps={pageProps} Page={Component} />
-              ) : (
-                <Component {...pageProps} />
-              )}{' '}
-            </ThemeProvider>
-          </CurrencyHelpersProvider>
-        </SessionProvider>
+        <Direction.Provider dir={dir}>
+          <SessionProvider session={session}>
+            <CurrencyHelpersProvider>
+              <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                <Toaster toastOptions={toastOptions} />
+                {Component.auth ? (
+                  <Auth pageProps={pageProps} Page={Component} />
+                ) : (
+                  <Component {...pageProps} />
+                )}{' '}
+              </ThemeProvider>
+            </CurrencyHelpersProvider>
+          </SessionProvider>
+        </Direction.Provider>
       </SerwistProvider>
     </main>
   );

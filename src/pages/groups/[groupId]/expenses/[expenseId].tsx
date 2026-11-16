@@ -66,7 +66,7 @@ const ExpensesPage: NextPageWithUser = ({ user }) => {
   const renderEditButton = () => {
     const editButton = (
       <Button variant="ghost">
-        <PencilIcon className="mr-1 h-4 w-4" />
+        <PencilIcon className="me-1 h-4 w-4" />
       </Button>
     );
 
@@ -97,10 +97,10 @@ const ExpensesPage: NextPageWithUser = ({ user }) => {
           <div className="flex min-w-0 items-center gap-1">
             <Link
               href={`/groups/${groupId}`}
-              className="text-primary -ml-3 flex size-11 shrink-0 items-center justify-center"
+              className="text-primary -ms-3 flex size-11 shrink-0 items-center justify-center"
               aria-label={t('actions.back')}
             >
-              <ChevronLeftIcon className="size-7" />
+              <ChevronLeftIcon className="size-7 rtl:-scale-x-100" />
             </Link>
             <p className="truncate text-lg font-semibold">{t('ui.expense_details')}</p>
           </div>

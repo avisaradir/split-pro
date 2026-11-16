@@ -98,8 +98,10 @@ const AccountPage: NextPageWithUser<{
           <div className="flex min-w-0 items-center gap-3">
             <EntityAvatar entity={userQuery.data} size={56} />
             <div className="min-w-0">
-              <div className="truncate text-xl font-semibold">{userQuery.data?.name}</div>
-              <div className="text-muted-foreground truncate text-sm">{userQuery.data?.email}</div>
+              <div className="user-text truncate text-xl font-semibold">{userQuery.data?.name}</div>
+              <div className="text-muted-foreground user-text truncate text-sm">
+                {userQuery.data?.email}
+              </div>
             </div>
           </div>
           {!userQuery.isPending && (

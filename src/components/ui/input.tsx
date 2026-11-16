@@ -15,7 +15,7 @@ const Input: React.FC<InputProps> = ({ className, type, rightIcon, ...props }) =
     <div className="relative w-full">
       <input type={type} data-slot="input" className={cn(inputStyles, className)} {...props} />
       {rightIcon && (
-        <span className="text-muted-foreground absolute top-1/2 right-3 -translate-y-1/2">
+        <span className="text-muted-foreground absolute end-3 top-1/2 -translate-y-1/2">
           {rightIcon}
         </span>
       )}

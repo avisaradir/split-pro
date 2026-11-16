@@ -20,4 +20,11 @@ export const getSupportedLanguages = (): SupportedLanguage[] =>
     { code: 'id', name: 'Bahasa Indonesia' },
     { code: 'sv', name: 'Svenska' },
     { code: 'hu', name: 'Magyar' },
+    { code: 'he', name: 'עברית' },
   ].sort((a, b) => a.name.localeCompare(b.name));
+
+const RTL_LANGUAGES = new Set(['he', 'ar', 'fa', 'ur']);
+
+/** Text direction for a locale code such as `he` or `pt-BR`. */
+export const getLanguageDirection = (locale: string | undefined): 'ltr' | 'rtl' =>
+  RTL_LANGUAGES.has(locale?.split('-')[0] ?? '') ? 'rtl' : 'ltr';

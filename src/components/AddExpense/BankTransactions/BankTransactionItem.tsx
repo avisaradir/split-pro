@@ -64,7 +64,7 @@ export const BankTransactionItem: React.FC<{
               'transition-all duration-200 ease-out',
               shouldShowCheckbox
                 ? 'translate-x-0 opacity-100'
-                : 'pointer-events-none hidden -translate-x-2',
+                : 'pointer-events-none hidden -translate-x-2 rtl:translate-x-2',
             )}
           >
             <Checkbox
@@ -95,13 +95,13 @@ export const BankTransactionItem: React.FC<{
         <div>
           <p
             className={cn(
-              'line-clamp-2 text-left text-sm whitespace-break-spaces lg:text-base',
+              'line-clamp-2 text-start text-sm whitespace-break-spaces lg:text-base',
               alreadyAdded && 'line-through',
             )}
           >
             {item.description}
           </p>
-          <p className="text-muted-foreground line-clamp-1 flex text-left text-xs whitespace-break-spaces">
+          <p className="text-muted-foreground line-clamp-1 flex text-start text-xs whitespace-break-spaces">
             {item.pending && t('expense_details.pending')}{' '}
             {alreadyAdded && `(${t('expense_details.already_added')}${groupName})`}
           </p>
@@ -111,7 +111,7 @@ export const BankTransactionItem: React.FC<{
       <div className="min-w-10 shrink-0">
         <div
           className={cn(
-            'text-positive text-right',
+            'text-positive text-end',
             alreadyAdded && 'text-muted-foreground',
             isNegative && 'text-destructive',
           )}

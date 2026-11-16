@@ -234,7 +234,7 @@ export const ExpenseComments = ({ expense, userId }: { expense: Expense; userId:
               readOnly={pending}
               className="px-4"
             />
-            <InputGroupAddon align="inline-end" className="mr-1 self-end pr-3">
+            <InputGroupAddon align="inline-end" className="me-1 self-end pe-3">
               <InputGroupButton
                 type="submit"
                 variant="default"

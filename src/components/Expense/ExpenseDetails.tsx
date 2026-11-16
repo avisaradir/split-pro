@@ -97,7 +97,7 @@ const ExpenseDetails: React.FC<ExpenseDetailsProps> = ({ user, expense }) => {
                   <div className="relative">
                     <Users className="size-4" />
                     {expense.group.simplifyDebts && (
-                      <Merge className="absolute -top-1 -right-1 size-2" />
+                      <Merge className="absolute -end-1 -top-1 size-2" />
                     )}
                   </div>
                   {expense.group.name}
@@ -139,7 +139,7 @@ const ExpenseDetails: React.FC<ExpenseDetailsProps> = ({ user, expense }) => {
           }}
         />
       </div>
-      <div className="mt-4 ml-14 flex flex-col gap-4">
+      <div className="ms-14 mt-4 flex flex-col gap-4">
         {expense.expenseParticipants
           .filter((participant) => 0n !== participant.amount)
           .map((participant) => (
@@ -259,7 +259,7 @@ export const EditCurrencyConversion: React.FC<{ expense: ExpenseDetailsOutput }>
       editingRate={Math.abs(Number(expense.conversionTo?.amount) / Number(expense.amount))}
     >
       <Button variant="ghost" onClick={onClick}>
-        <PencilIcon className="mr-1 h-4 w-4" />
+        <PencilIcon className="me-1 h-4 w-4" />
       </Button>
     </CurrencyConversion>
   );
@@ -340,7 +340,7 @@ export const EditSettlement: React.FC<{ expense: ExpenseDetailsOutput }> = ({ ex
     <AppDrawer
       trigger={
         <Button variant="ghost">
-          <PencilIcon className="mr-1 h-4 w-4" />
+          <PencilIcon className="me-1 h-4 w-4" />
         </Button>
       }
       leftAction={t('actions.back')}
@@ -355,7 +355,7 @@ export const EditSettlement: React.FC<{ expense: ExpenseDetailsOutput }> = ({ ex
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-5">
             <EntityAvatar entity={sender} />
-            <ArrowRightIcon className="text-muted-foreground h-6 w-6" />
+            <ArrowRightIcon className="text-muted-foreground h-6 w-6 rtl:-scale-x-100" />
             <EntityAvatar entity={receiver} />
           </div>
           <p className="text-muted-foreground mt-2 text-center text-sm">

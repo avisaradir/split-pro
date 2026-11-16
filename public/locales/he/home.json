@@ -1,74 +1,77 @@
 {
   "features": {
-    "bank_connection": {
-      "description": "",
-      "title": ""
-    },
     "currency_conversion": {
-      "description": "",
-      "title": ""
+      "description": "המרה מהירה בין מטבעות לפי שערי חליפין עדכניים או היסטוריים",
+      "title": "המרת מטבע"
+    },
+    "recurring_transactions": {
+      "description": "הגדרת הוצאות קבועות אוטומטיות לשכר דירה, מנויים או כל עלות משותפת חוזרת",
+      "title": "הוצאות קבועות"
     },
     "debt_simplification": {
-      "description": "",
-      "title": ""
+      "description": "פישוט אוטומטי של חובות בקבוצה, כדי לצמצם את מספר ההעברות בין חברים",
+      "title": "פישוט חובות"
     },
     "groups_and_friends": {
-      "description": "",
-      "title": ""
+      "description": "אפשר ליצור כמה קבוצות או להוסיף יתרה ישירות. הכול מתאחד במקום אחד",
+      "title": "קבוצות וחברים"
     },
     "i18": {
-      "description": "",
-      "title": ""
+      "description": "זמינה בשפות רבות, כדי שחלוקת הוצאות תהיה נגישה בכל העולם",
+      "title": "תמיכה בשפות רבות"
+    },
+    "bank_connection": {
+      "title": "חיבור לבנק",
+      "description": "הוספת הוצאות מהר יותר בעזרת חיבור לעסקאות בחשבון הבנק דרך GoCardless או Plaid"
     },
     "import_splitwise": {
-      "description": "",
-      "title": ""
+      "description": "אין צורך להעביר יתרות ידנית. אפשר לייבא משתמשים וקבוצות מ-Splitwise",
+      "title": "ייבוא מ-Splitwise"
     },
     "multiple_currencies": {
-      "description": "",
-      "title": ""
+      "description": "צריך להוסיף הוצאה במטבע אחר לאותו משתמש? אין בעיה!",
+      "title": "מטבעות מרובים"
     },
     "open_source": {
-      "description": "",
-      "title": ""
+      "description": "מה שמקשה עלינו להפוך לרעים. וקל להתקין על שרת משלך",
+      "title": "קוד פתוח"
     },
     "push_notifications": {
-      "description": "",
-      "title": ""
+      "description": "לא לפספס התראות חשובות. קבלת התראה כשמישהו מוסיף הוצאה או סוגר חשבון",
+      "title": "התראות Push"
     },
     "pwa_support": {
-      "description": "",
-      "title": ""
+      "description": "אוהבים אפליקציות לנייד? יש לנו פתרון. מתקינים כ-PWA ולא מרגישים בהבדל!",
+      "title": "תמיכה ב-PWA"
     },
-    "title": "",
+    "title": "יכולות",
     "unequal_split": {
-      "description": "",
-      "title": ""
+      "description": "אפשרויות חלוקה מתקדמות: לפי חלקים, אחוזים או סכומים מדויקים.",
+      "title": "חלוקה לא שווה"
     },
     "upload_receipts": {
-      "description": "",
-      "title": ""
+      "description": "העלאת קבלות יחד עם ההוצאה",
+      "title": "העלאת קבלות"
     }
   },
   "footer": {
-    "built_by": ""
+    "built_by": "נבנה על ידי"
   },
   "hero": {
-    "add_expense_button": "",
-    "star_github_button": "",
-    "subtitle_link": "",
-    "subtitle_part1": "",
-    "subtitle_part2": "",
-    "title_highlight": "",
-    "title_part1": ""
+    "add_expense_button": "הוספת הוצאה",
+    "star_github_button": "סמנו אותנו בכוכב ב-GitHub",
+    "get_started_button": "בואו נתחיל",
+    "image_alt": "תצוגה מקדימה של אפליקציית SplitPro",
+    "title_rich": "חלוקת הוצאות עם חברים <highlight>בחינם</highlight>.",
+    "subtitle_rich": "חלופה <sourceLink>בקוד פתוח</sourceLink> ל-Splitwise."
   },
   "meta": {
-    "description": "",
-    "title": ""
+    "description": "SplitPro: חלוקת הוצאות עם חברים, בחינם",
+    "title": "SplitPro: חלוקת הוצאות עם חברים, בחינם"
   },
   "nav": {
-    "app_name": "",
-    "privacy": "",
-    "terms": ""
+    "app_name": "SplitPro",
+    "privacy": "פרטיות",
+    "terms": "תנאי שימוש"
   }
 }

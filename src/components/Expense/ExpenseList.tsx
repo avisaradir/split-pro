@@ -127,7 +127,7 @@ const Expense: ExpenseComponent = ({ e, userId }) => {
         </div>
         <CategoryIcon category={e.category} className="text-muted-foreground size-5 shrink-0" />
         <div className="min-w-0 pe-1">
-          <p className="truncate text-sm lg:text-base">{e.name}</p>
+          <p className="user-text truncate text-sm lg:text-base">{e.name}</p>
           <p className="text-muted-foreground truncate text-xs">
             {t(e.amount < 0n ? 'expense_list.user_received' : 'expense_list.user_paid', {
               actor: e.paidByUser.id === userId ? 'you' : 'other',
@@ -140,11 +140,11 @@ const Expense: ExpenseComponent = ({ e, userId }) => {
       <div className="min-w-10 shrink-0">
         {youPaid || 0n !== yourExpenseAmount ? (
           <>
-            <div className={`text-right text-xs ${youPaid ? 'text-positive' : 'text-negative'}`}>
+            <div className={`text-end text-xs ${youPaid ? 'text-positive' : 'text-negative'}`}>
               {t(youPaid ? 'ui.expense.statements.you_lent' : 'ui.expense.statements.you_owe')}
             </div>
             <div
-              className={`xs:max-w-full max-w-32 truncate text-right ${youPaid ? 'text-positive' : 'text-negative'}`}
+              className={`xs:max-w-full max-w-32 truncate text-end ${youPaid ? 'text-positive' : 'text-negative'}`}
             >
               {toUIString(yourExpenseAmount)}
             </div>
